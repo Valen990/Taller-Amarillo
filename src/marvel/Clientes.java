@@ -25,6 +25,8 @@ public class Clientes extends javax.swing.JFrame {
     private void initComponents() {
 
         jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel1_fondo = new javax.swing.JPanel();
         jButton1_registrarse = new javax.swing.JButton();
         jButton1_iniciarsesion = new javax.swing.JButton();
@@ -34,14 +36,24 @@ public class Clientes extends javax.swing.JFrame {
         jButton2_clientes_tab = new javax.swing.JButton();
         jButton3_mascotas_tab = new javax.swing.JButton();
         jButton4_vacunacion_tab = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1_cli = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2_masc = new javax.swing.JTextArea();
         jButton1_det_cli2 = new javax.swing.JButton();
-        jButton1_det_cli = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2_clientes_tab = new javax.swing.JTable();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,16 +96,6 @@ public class Clientes extends javax.swing.JFrame {
         jButton4_vacunacion_tab.setForeground(new java.awt.Color(51, 255, 204));
         jButton4_vacunacion_tab.setText("Vacunaciòn");
 
-        jTextArea1_cli.setColumns(20);
-        jTextArea1_cli.setRows(5);
-        jTextArea1_cli.setText("Apellido: Torres\n\nCódigo: A001\n\nDirección: Carrera 123\n\nTeléfono: 111-111-1111");
-        jScrollPane1.setViewportView(jTextArea1_cli);
-
-        jTextArea2_masc.setColumns(20);
-        jTextArea2_masc.setRows(5);
-        jTextArea2_masc.setText("Apellido: Ramírez\n\nCódigo: A002\n\nDirección: Carrera 321\n\nTeléfono: 222-222-2222");
-        jScrollPane2.setViewportView(jTextArea2_masc);
-
         jButton1_det_cli2.setBackground(new java.awt.Color(255, 255, 51));
         jButton1_det_cli2.setText("Ver Detalles");
         jButton1_det_cli2.addActionListener(new java.awt.event.ActionListener() {
@@ -102,13 +104,20 @@ public class Clientes extends javax.swing.JFrame {
             }
         });
 
-        jButton1_det_cli.setBackground(new java.awt.Color(255, 255, 51));
-        jButton1_det_cli.setText("Ver Detalles");
-        jButton1_det_cli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1_det_cliActionPerformed(evt);
+        jTable2_clientes_tab.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nombre", "Familia", "Teléfono", "Dirección"
             }
-        });
+        ));
+        jScrollPane2.setViewportView(jTable2_clientes_tab);
 
         javax.swing.GroupLayout jPanel1_fondoLayout = new javax.swing.GroupLayout(jPanel1_fondo);
         jPanel1_fondo.setLayout(jPanel1_fondoLayout);
@@ -116,38 +125,32 @@ public class Clientes extends javax.swing.JFrame {
             jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1_fondoLayout.createSequentialGroup()
                 .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_fondoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1_buscar)
-                        .addGap(24, 24, 24)
-                        .addComponent(jButton1_iniciarsesion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1_registrarse))
-                    .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(jLabel1_nclientes)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1_fondoLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                                .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1_det_cli)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                                .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                                        .addGap(115, 115, 115)
-                                        .addComponent(jButton1_det_cli2))))
                             .addGroup(jPanel1_fondoLayout.createSequentialGroup()
                                 .addComponent(jButton1_tab)
                                 .addGap(35, 35, 35)
                                 .addComponent(jButton2_clientes_tab)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton3_mascotas_tab)
-                                .addGap(26, 26, 26)
-                                .addComponent(jButton4_vacunacion_tab, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(32, 32, 32)
+                                .addComponent(jButton4_vacunacion_tab, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10))
+                            .addGroup(jPanel1_fondoLayout.createSequentialGroup()
+                                .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton1_det_cli2))
+                                .addGap(0, 19, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_fondoLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1_nclientes)
+                            .addComponent(jButton1_buscar))
+                        .addGap(24, 24, 24)
+                        .addComponent(jButton1_iniciarsesion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1_registrarse)))
                 .addContainerGap())
         );
         jPanel1_fondoLayout.setVerticalGroup(
@@ -166,30 +169,22 @@ public class Clientes extends javax.swing.JFrame {
                     .addComponent(jButton1_tab)
                     .addComponent(jButton3_mascotas_tab)
                     .addComponent(jButton4_vacunacion_tab))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1_det_cli2)
-                    .addComponent(jButton1_det_cli))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1_det_cli2)
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1_fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1_fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1_fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1_fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -206,11 +201,6 @@ public class Clientes extends javax.swing.JFrame {
     private void jButton1_det_cli2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_det_cli2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1_det_cli2ActionPerformed
-
-    private void jButton1_det_cliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_det_cliActionPerformed
-        //Aquí colocaría el "boton" de ver detalles, dejando uno solo y con: 
-        //cargarDatosPlano();    
-    }//GEN-LAST:event_jButton1_det_cliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,7 +239,6 @@ public class Clientes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1_buscar;
-    private javax.swing.JButton jButton1_det_cli;
     private javax.swing.JButton jButton1_det_cli2;
     private javax.swing.JButton jButton1_iniciarsesion;
     private javax.swing.JButton jButton1_registrarse;
@@ -262,7 +251,7 @@ public class Clientes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1_fondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1_cli;
-    private javax.swing.JTextArea jTextArea2_masc;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2_clientes_tab;
     // End of variables declaration//GEN-END:variables
 }
