@@ -15,7 +15,6 @@ public class Mascota {
     String edad;
     
     Mascota() {
-        
     }
 
     public Mascota(String id_mascota, String nombre_m, String apodo, String especie, String raza, String color_pelo, String edad) {
@@ -82,5 +81,9 @@ public class Mascota {
 
     public void setEdad(String edad) {
         this.edad = edad;
+    }
+    
+    public String Imprimir(){
+        return getNombre_m() + ", " + getApodo() + ", " + getEspecie() + ", " + getRaza() + ", " + getColor_pelo() + ", " + getEdad();
     }
 }

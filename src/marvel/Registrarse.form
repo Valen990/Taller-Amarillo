@@ -143,8 +143,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1_nombre" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField2_nombre_c" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jTextField2_nombre_c" min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1_familia" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextField2_familia_c" min="-2" max="-2" attributes="0"/>
@@ -159,8 +159,8 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel1_contrasena" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPasswordField1_contrasena_c" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jPasswordField1_contrasena_c" min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel1_telefono" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextField2_telefono_c" min="-2" max="-2" attributes="0"/>
@@ -198,11 +198,7 @@
                   <Color blue="cc" green="ff" red="33" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder>
-                      <Color PropertyName="color" blue="cc" green="ff" red="33" type="rgb"/>
-                    </LineBorder>
-                  </Border>
+                  <Border info="null"/>
                 </Property>
               </Properties>
               <Events>
@@ -270,8 +266,11 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="ff" red="33" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+                <Property name="actionCommand" type="java.lang.String" value="null"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPasswordField1_contrasena_cActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1_telefono">
               <Properties>
@@ -287,6 +286,9 @@
                   <Color blue="cc" green="ff" red="33" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2_telefono_cActionPerformed"/>
+              </Events>
             </Component>
             <Component class="java.awt.Button" name="button1_registrarse">
               <Properties>

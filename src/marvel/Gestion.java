@@ -129,7 +129,7 @@ public class Gestion extends javax.swing.JFrame {
                                         .addGap(28, 28, 28)
                                         .addComponent(jButton2_clientes_tab))
                                     .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
+                                        .addGap(17, 17, 17)
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1_fondoLayout.createSequentialGroup()

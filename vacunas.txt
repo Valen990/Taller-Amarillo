@@ -1,0 +1,5 @@
+Val;Cookie;Leptospirosis;Aplicada
+Cookie;Val;Rabia;Pendiente
+mor;sebas;Rabia;Pendiente
+agatha;vale;Rabia;Pendiente
+d;w;Rabia;Pendiente

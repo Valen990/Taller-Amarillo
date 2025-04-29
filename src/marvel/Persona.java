@@ -5,8 +5,8 @@ package marvel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-public class Persona {
-    //String id_persona;
+public class Persona extends Mascota{
+    String id_persona; 
     String nombre;
     String familia;
     int cedula;
@@ -19,7 +19,7 @@ public class Persona {
     }
 
     public Persona(String id_persona, String nombre, String familia, int cedula, String correo, String contrasena, int tel, String direccion) {
-        //this.id_persona = id_persona;
+        this.id_persona = id_persona;
         this.nombre = nombre;
         this.familia = familia;
         this.cedula = cedula;
@@ -29,13 +29,13 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    /*public String getId_persona() {
+    public String getId_persona() {
         return id_persona;
     }
 
     public void setId_persona(String id_persona) {
         this.id_persona = id_persona;
-    }*/
+    }
 
     public String getNombre() {
         return nombre;
@@ -93,6 +93,7 @@ public class Persona {
         this.direccion = direccion;
     }
     
+    @Override
     public String Imprimir(){
         return getNombre() + ", " + getFamilia() + ", " + getTel() + ", " + getDireccion();
     }
