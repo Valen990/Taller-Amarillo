@@ -37,10 +37,11 @@ public class ArchivoPlano4 {
             }
             System.out.println("Datos de las citas guardados correctamente.");
         } catch (IOException e) {
-            System.err.println("Error al guardar los datos de las citas: " + e.getMessage());
-            JOptionPane.showMessageDialog(null,
-                "Error al guardar las citas:\n" + e.getMessage(),
-                "Error", JOptionPane.ERROR_MESSAGE);
+        System.err.println("Error al guardar los datos de las citas: " + e.getMessage());
+            
+        JOptionPane.showMessageDialog(null,
+        "Error al guardar las citas:\n" + e.getMessage(),
+        "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 

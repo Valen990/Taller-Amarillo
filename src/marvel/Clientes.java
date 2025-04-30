@@ -4,11 +4,9 @@ package marvel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
 */
 
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -22,6 +20,7 @@ public class Clientes extends javax.swing.JFrame {
     public Clientes() {
         initComponents();
         cargarDatosPlano();
+        ListaClientes = new ArrayList<>();
     }
 
     @SuppressWarnings("unchecked")
@@ -250,8 +249,6 @@ public class Clientes extends javax.swing.JFrame {
     
     if(respuesta == JOptionPane.YES_OPTION) {
         JPanel panel = new JPanel(new GridLayout(0, 2));
-        panel.setPreferredSize(new Dimension(300, 200)); 
-        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); 
         
         JTextField txtNombre = new JTextField(clienteSeleccionado.getNombre());
         JTextField txtFamilia = new JTextField(clienteSeleccionado.getFamilia());
@@ -293,17 +290,15 @@ if (resultado == JOptionPane.OK_OPTION) {
         return;
     }
 
-    /*clienteSeleccionado.setNombre(txtNombre.getText().trim());
-    clienteSeleccionado.setFamilia(txtFamilia.getText().trim());
-    clienteSeleccionado.setDireccion(txtDireccion.getText().trim());*/
-
     ListaClientes.set(filaSeleccionada, clienteSeleccionado);
     ArchivoPlano.actualizarClienteEnArchivo(nombreOriginal, clienteSeleccionado);
     
     DefaultTableModel modelo = (DefaultTableModel) this.jTable2_clientes_tab.getModel();
     modelo.setValueAt(clienteSeleccionado.getNombre(), filaSeleccionada, 0);
+    modelo.setValueAt(clienteSeleccionado.getFamilia(), filaSeleccionada, 1);
+    modelo.setValueAt(clienteSeleccionado.getTel(), filaSeleccionada, 2);
+    modelo.setValueAt(clienteSeleccionado.getDireccion(), filaSeleccionada, 3);
     
-    //actualizarTablaClientes(); 
     JOptionPane.showMessageDialog(null, "Cliente actualizado correctamente.");
 }
     }
@@ -341,7 +336,7 @@ if (resultado == JOptionPane.OK_OPTION) {
         cargarDatosPlano();
     }//GEN-LAST:event_jButton1_verActionPerformed
 
-public void cargarDatosPlano() {
+    public void cargarDatosPlano() {
     List<Persona> clientesCargados = ArchivoPlano.cargarDesdeArchivo();
     ListaClientes.clear();
     DefaultTableModel modelo = (DefaultTableModel) jTable2_clientes_tab.getModel();
@@ -363,21 +358,6 @@ public void cargarDatosPlano() {
             });
         }
     }
-
-/*public void actualizarTablaClientes() {
-    DefaultTableModel modelo = (DefaultTableModel) jTable2_clientes_tab.getModel();
-    modelo.setRowCount(0); 
-
-    for (Persona cliente : ListaClientes) {
-        Object[] fila = new Object[] {
-            cliente.getNombre(),
-            cliente.getFamilia(),
-            cliente.getTel(),
-            cliente.getDireccion()
-        };
-        modelo.addRow(fila); 
-    }
-}*/
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

@@ -1,12 +1,11 @@
-package marvel;
-
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package marvel;
+
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Registrarse2 extends javax.swing.JFrame {
     ArrayList<Mascota> ListaMascotas = new ArrayList<>();
@@ -202,21 +201,23 @@ public class Registrarse2 extends javax.swing.JFrame {
     private void button1_registrarse2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1_registrarse2ActionPerformed
     Mascota a = new Mascota();
 
-String nombre_m = " ";
-String apodo = " ";
-String especie = " ";
-String raza = " ";
-String color_pelo = " ";
-String edad = " ";
+    String nombre_m = " ";
+    String apodo = " ";
+    String especie = " ";
+    String raza = " ";
+    String color_pelo = " ";
+    String edad = " ";
 
-if(jTextField2_nombre_c2.getText().trim().isEmpty() ||
+   if(jTextField2_nombre_c2.getText().trim().isEmpty() ||
    jTextField2_apodo.getText().trim().isEmpty() ||
    jTextField2_especie_c.getText().trim().isEmpty() ||
    jTextField2_raza_c.getText().trim().isEmpty() ||
    jTextField2_color_c.getText().trim().isEmpty() ||
-   jTextField2_edad_c.getText().trim().isEmpty()) {
-    JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos para continuar");
-    return;
+   jTextField2_edad_c.getText().trim().isEmpty()) 
+   
+{
+   JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos para continuar");
+   return;
 }
 
 nombre_m = jTextField2_nombre_c2.getText();
@@ -236,6 +237,7 @@ a.setEdad(edad);
 ListaMascotas.add(a);
 ArchivoLiso.guardarEnArchivo(ListaMascotas);
 
+JOptionPane.showMessageDialog(null, "¡Mascota registrada exitosamente!", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_button1_registrarse2ActionPerformed
 
     public static void main(String args[]) {

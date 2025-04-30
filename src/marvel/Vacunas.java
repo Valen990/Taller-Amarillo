@@ -10,9 +10,12 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Vacunas extends javax.swing.JFrame {
+    
     ArrayList<Vacunacion> ListaVacunas = new ArrayList<>();
+    
     public Vacunas() {
         initComponents();
+        ListaVacunas = new ArrayList<>();
     }
 
     @SuppressWarnings("unchecked")
@@ -161,6 +164,11 @@ public class Vacunas extends javax.swing.JFrame {
 
         jButton1_eliminar.setBackground(new java.awt.Color(255, 51, 51));
         jButton1_eliminar.setText("Eliminar");
+        jButton1_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_eliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -213,106 +221,77 @@ public class Vacunas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3_mascotas_tabActionPerformed
 
     private void jButton1_anadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_anadirActionPerformed
-     try {
-            JPanel panel = new JPanel(new GridLayout(4, 2));
+    try{
+        JPanel panel = new JPanel(new GridLayout(4, 2));
             
-            JTextField txtMascota = new JTextField();
-            JTextField txtCliente = new JTextField();
-            JComboBox<String> cbVacuna = new JComboBox<>(new String[]{
-                "Rabia", "Moquillo", "Parvovirus", "Leptospirosis", "Hexavalente"
-            });
-            JComboBox<String> cbEstado = new JComboBox<>(new String[]{
-                "Pendiente", "Aplicada", "Refuerzo pendiente", "Completo"
-            });
+        JTextField txtMascota = new JTextField();
+        JTextField txtCliente = new JTextField();
+        JComboBox<String> cbVacuna = new JComboBox<>(new String[]{
+            "Rabia", "Moquillo", "Parvovirus", "Leptospirosis", "Hexavalente"
+        });
+        
+        JComboBox<String> cbEstado = new JComboBox<>(new String[]{
+            "Pendiente", "Aplicada", "Refuerzo pendiente", "Completo"
+        });
             
-            panel.add(new JLabel("Mascota:"));
-            panel.add(txtMascota);
-            panel.add(new JLabel("Cliente:"));
-            panel.add(txtCliente);
-            panel.add(new JLabel("Vacuna:"));
-            panel.add(cbVacuna);
-            panel.add(new JLabel("Estado:"));
-            panel.add(cbEstado);
+        panel.add(new JLabel("Mascota:"));
+        panel.add(txtMascota);
+        panel.add(new JLabel("Cliente:"));
+        panel.add(txtCliente);
+        panel.add(new JLabel("Vacuna:"));
+        panel.add(cbVacuna);
+        panel.add(new JLabel("Estado:"));
+        panel.add(cbEstado);
             
-            int result = JOptionPane.showConfirmDialog(
-                this, 
-                panel, 
-                "Nueva Vacunación", 
-                JOptionPane.OK_CANCEL_OPTION,
-                JOptionPane.PLAIN_MESSAGE
+        int result = JOptionPane.showConfirmDialog(
+            this, 
+            panel, 
+            "Nueva Vacunación", 
+            JOptionPane.OK_CANCEL_OPTION,
+            JOptionPane.PLAIN_MESSAGE
             );
             
-            if (result == JOptionPane.OK_OPTION) {
-                if (txtMascota.getText().trim().isEmpty()) {
-                    JOptionPane.showMessageDialog(this, 
-                        "El nombre de mascota es obligatorio", 
-                        "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
+        if (result == JOptionPane.OK_OPTION) {
+            if (txtMascota.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, 
+                    "El nombre de mascota es obligatorio", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
                 
-                Vacunacion v = new Vacunacion();
-                v.setNombre_m(txtMascota.getText());
-                v.setNombre(txtCliente.getText());
-                v.setVacuna((String) cbVacuna.getSelectedItem());
-                v.setEstado((String) cbEstado.getSelectedItem());
+            Vacunacion v = new Vacunacion();
+            v.setNombre_m(txtMascota.getText());
+            v.setNombre(txtCliente.getText());
+            v.setVacuna((String) cbVacuna.getSelectedItem());
+            v.setEstado((String) cbEstado.getSelectedItem());
                 
-                DefaultTableModel modelo = (DefaultTableModel) jTable1_vacunacion.getModel();
-                modelo.addRow(new Object[]{
-                    v.getNombre_m(),  
-                    v.getNombre(),  
-                    v.getVacuna(),    
-                    v.getEstado()     
-                });
+            DefaultTableModel modelo = (DefaultTableModel) jTable1_vacunacion.getModel();
+            modelo.addRow(new Object[]{
+                v.getNombre_m(),  
+                v.getNombre(),  
+                v.getVacuna(),    
+                v.getEstado()     
+            });
                 
-                ListaVacunas.add(v);
-                ArchivoLlano.guardarVacunacion(v);
+            ListaVacunas.add(v);
+            ArchivoLlano.guardarEnArchivo(ListaVacunas);
                 
-                JOptionPane.showMessageDialog(this, "Vacunación añadida correctamente.");
+            JOptionPane.showMessageDialog(this, "Vacunación añadida correctamente.");
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, 
-                "Error al agregar vacunación: " + ex.getMessage(), 
-                "Error", JOptionPane.ERROR_MESSAGE);
+            "Error al agregar vacunación: " + ex.getMessage(), 
+            "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }
-
-    
-    //quitar con pinzas.
-    /*private void eliminarVacunacion() {
-        int fila = jTable1_vacunacion.getSelectedRow();
-        if (fila == -1) {
-            JOptionPane.showMessageDialog(this, 
-                "Seleccione un registro para eliminar", 
-                "Error", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        int confirm = JOptionPane.showConfirmDialog(this,
-            "¿Está seguro de eliminar esta vacunación?",
-            "Confirmar eliminación",
-            JOptionPane.YES_NO_OPTION);
-        
-        if (confirm == JOptionPane.YES_OPTION) {
-            DatosCompartidos.ListaVacunas.remove(fila);
-            ((DefaultTableModel)jTable1_vacunacion.getModel()).removeRow(fila);
-            JOptionPane.showMessageDialog(this, "Vacunación eliminada correctamente");
-        }
-        
-        Vacunacion v = DatosCompartidos.ListaVacunas.get(fila);
-        ArchivoLlano.guardarEnArchivo(DatosCompartidos.ListaVacunas);
     }//GEN-LAST:event_jButton1_anadirActionPerformed
-*/
+
     private void jButton1_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_editarActionPerformed
-    
-        //Preguntar al profe.
-    /*int filaSeleccionada = jTable1_vacunacion.getSelectedRow();
+    int filaSeleccionada = jTable1_vacunacion.getSelectedRow();
     
     if (filaSeleccionada != -1) {
-        // Obtener la vacunación seleccionada
-        Vacunacion vacunaSeleccionada = DatosCompartidos.ListaVacunas.get(filaSeleccionada);
+        Vacunacion vacunaSeleccionada = ListaVacunas.get(filaSeleccionada);
         String nombreOriginal = vacunaSeleccionada.getNombre_m();
         
-        // Diálogo de confirmación para editar
         int respuesta = JOptionPane.showConfirmDialog(
             null, 
             "¿Deseas editar esta vacunación?\n" + vacunaSeleccionada.Imprimir(), 
@@ -322,7 +301,6 @@ public class Vacunas extends javax.swing.JFrame {
         );
         
         if(respuesta == JOptionPane.YES_OPTION) {
-            // Crear formulario para editar los datos
             JPanel panel = new JPanel(new GridLayout(0, 2));
             
             JTextField txtMascota = new JTextField(vacunaSeleccionada.getNombre_m());
@@ -353,13 +331,12 @@ public class Vacunas extends javax.swing.JFrame {
             );
             
             if(resultado == JOptionPane.OK_OPTION) {
-                // Actualizar los datos
                 vacunaSeleccionada.setNombre_m(txtMascota.getText());
                 vacunaSeleccionada.setNombre(txtCliente.getText());
                 vacunaSeleccionada.setVacuna((String) cbVacuna.getSelectedItem());
                 vacunaSeleccionada.setEstado((String) cbEstado.getSelectedItem());
                 
-                DatosCompartidos.ListaVacunas.set(filaSeleccionada, vacunaSeleccionada);
+                ListaVacunas.set(filaSeleccionada, vacunaSeleccionada);
                 
                 ArchivoLlano.actualizarVacunacionEnArchivo(nombreOriginal, vacunaSeleccionada);
                 
@@ -379,9 +356,55 @@ public class Vacunas extends javax.swing.JFrame {
     } else {
         JOptionPane.showMessageDialog(null, "Por favor seleccione una vacunación de la tabla", 
             "Error", JOptionPane.WARNING_MESSAGE);
-        }*/
+        }
     }//GEN-LAST:event_jButton1_editarActionPerformed
 
+    private void jButton1_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_eliminarActionPerformed
+    int filaSeleccionada = this.jTable1_vacunacion.getSelectedRow(); 
+    String Nombre_m = ListaVacunas.get(filaSeleccionada).getNombre_m();
+    
+    if (filaSeleccionada == -1 || ListaVacunas.isEmpty() || filaSeleccionada >= ListaVacunas.size()) {
+        JOptionPane.showMessageDialog(null, "No hay datos para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+        if (filaSeleccionada != -1){
+            int respuesta = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que deseas eliminar esta vacuna? -> "
+                    + ListaVacunas.get(filaSeleccionada).Imprimir(), "Confirmar eliminación",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+            
+                    if(respuesta == JOptionPane.YES_OPTION){
+                    ListaVacunas.remove(filaSeleccionada);
+                    DefaultTableModel modelo = (DefaultTableModel) this.jTable1_vacunacion.getModel();
+                    modelo.removeRow(filaSeleccionada);
+                    ArchivoLlano.eliminarDeArchivo(Nombre_m);
+                    
+                    JOptionPane.showMessageDialog(null, "Vacuna Eliminada");
+                }else{
+                JOptionPane.showMessageDialog(null, "Se canceló la acción sobre el elemento");
+            }
+        }
+    }//GEN-LAST:event_jButton1_eliminarActionPerformed
+
+    /*public void cargarDatosLlano() {
+    List<Vacunacion> vacunasCargadas = ArchivoLlano.cargarDesdeArchivo();
+
+    ListaVacunas.clear();
+    DefaultTableModel modelo = (DefaultTableModel) jTable1_vacunacion.getModel();
+    modelo.setRowCount(0);
+
+    ListaVacunas.addAll(vacunasCargadas);
+
+    for (Vacunacion v : vacunasCargadas) {
+        modelo.addRow(new Object[]{
+            v.getNombre_m(),
+            v.getNombre(),
+            v.getVacuna(),
+            v.getEstado()
+        });
+    }
+}*/
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -431,5 +454,4 @@ public class Vacunas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1_vacunacion;
     // End of variables declaration//GEN-END:variables
-
 }

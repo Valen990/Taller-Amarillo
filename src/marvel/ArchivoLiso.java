@@ -46,6 +46,7 @@ public class ArchivoLiso {
                     a.setEspecie(datos[2].trim());
                     a.setRaza(datos[3].trim());
                     a.setColor_pelo(datos[4].trim());
+                    a.setEdad(datos[5].trim());
                                         
                     ListaMascotas.add(a);
                 }

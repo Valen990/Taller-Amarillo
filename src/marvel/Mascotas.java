@@ -4,11 +4,9 @@
  */
 package marvel;
 
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -248,125 +246,115 @@ public class Mascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1_historialActionPerformed
 
     private void jButton1_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_editarActionPerformed
-    int filaSeleccionada = this.jTable1_mascotas.getSelectedRow();
-
-    if (filaSeleccionada == -1 || ListaMascotas.isEmpty() || filaSeleccionada >= ListaMascotas.size()) {
-        JOptionPane.showMessageDialog(null, "No hay datos para editar.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-
-    if (filaSeleccionada != -1) {
-        Mascota mascotaSeleccionada = ListaMascotas.get(filaSeleccionada);
-        String nombre_mOriginal = mascotaSeleccionada.getNombre_m();
-
-        int respuesta = JOptionPane.showConfirmDialog(
+int filaSeleccionada = this.jTable1_mascotas.getSelectedRow();
+        
+if (filaSeleccionada != -1) {
+    Mascota mascotaSeleccionada = ListaMascotas.get(filaSeleccionada);
+    String mascotaActual = mascotaSeleccionada.getNombre_m();
+    
+    int respuesta = JOptionPane.showConfirmDialog(
+        null, 
+        "¿Deseas editar este cliente?\n" + mascotaSeleccionada.Imprimir(), 
+        "Confirmar edición",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE
+    );
+    
+    if(respuesta == JOptionPane.YES_OPTION) {
+        JPanel panel = new JPanel(new GridLayout(0, 2));
+        
+        JTextField txtNombre = new JTextField(mascotaSeleccionada.getNombre_m());
+        JTextField txtApodo = new JTextField(mascotaSeleccionada.getApodo());
+        JTextField txtEspecie = new JTextField(mascotaSeleccionada.getEspecie());
+        JTextField txtRaza = new JTextField(mascotaSeleccionada.getRaza());
+        JTextField txtPelaje = new JTextField(mascotaSeleccionada.getColor_pelo());
+        JTextField txtEdad = new JTextField(mascotaSeleccionada.getEdad()); 
+        
+        panel.add(new JLabel("Nombre:"));
+        panel.add(txtNombre);
+        panel.add(new JLabel("Apodo:")); 
+        panel.add(txtApodo);
+        panel.add(new JLabel("Especie:")); 
+        panel.add(txtEspecie);
+        panel.add(new JLabel("Raza:")); 
+        panel.add(txtRaza);
+        panel.add(new JLabel("Pelaje:")); 
+        panel.add(txtPelaje);
+        panel.add(new JLabel("Edad:")); 
+        panel.add(txtEdad);
+        
+        int resultado = JOptionPane.showConfirmDialog(
             null, 
-            "¿Deseas editar esta mascota?\n" + mascotaSeleccionada.Imprimir(), 
-            "Confirmar edición",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE
+            panel, 
+            "Editar Mascota",
+            JOptionPane.OK_CANCEL_OPTION,
+            JOptionPane.PLAIN_MESSAGE
         );
-
-        if (respuesta == JOptionPane.YES_OPTION) {
-            JPanel panel = new JPanel(new GridLayout(0, 2));
-            panel.setPreferredSize(new Dimension(300, 200)); 
-            panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); 
-
-            JTextField txtNombre = new JTextField(mascotaSeleccionada.getNombre_m());
-            JTextField txtApodo = new JTextField(mascotaSeleccionada.getApodo());
-            JTextField txtEspecie = new JTextField(mascotaSeleccionada.getEspecie());
-            JTextField txtRaza = new JTextField(mascotaSeleccionada.getRaza());
-            JTextField txtPelaje = new JTextField(mascotaSeleccionada.getColor_pelo());
-            JTextField txtEdad = new JTextField(mascotaSeleccionada.getEdad());
-
-            panel.add(new JLabel("Nombre:")); panel.add(txtNombre);
-            panel.add(new JLabel("Apodo:")); panel.add(txtApodo);
-            panel.add(new JLabel("Especie:")); panel.add(txtEspecie);
-            panel.add(new JLabel("Raza:")); panel.add(txtRaza);
-            panel.add(new JLabel("Pelaje:")); panel.add(txtPelaje);
-            panel.add(new JLabel("Edad:")); panel.add(txtEdad);
-
-            int resultado = JOptionPane.showConfirmDialog(
-                null, 
-                panel, 
-                "Editar Mascota",
-                JOptionPane.OK_CANCEL_OPTION,
-                JOptionPane.PLAIN_MESSAGE
-            );
-
-            if (resultado == JOptionPane.OK_OPTION) {
-                if (txtNombre.getText().trim().isEmpty() || 
-                    txtApodo.getText().trim().isEmpty() || 
-                    txtEspecie.getText().trim().isEmpty() || 
-                    txtRaza.getText().trim().isEmpty() ||
-                    txtPelaje.getText().trim().isEmpty() || 
-                    txtEdad.getText().trim().isEmpty()) {
-
-                    JOptionPane.showMessageDialog(null, "¡Todos los campos son obligatorios!", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-
-                // 🛠 Actualiza los valores de la mascota
-                /*mascotaSeleccionada.setNombre_m(txtNombre.getText().trim());
-                mascotaSeleccionada.setApodo(txtApodo.getText().trim());
-                mascotaSeleccionada.setEspecie(txtEspecie.getText().trim());
-                mascotaSeleccionada.setRaza(txtRaza.getText().trim());
-                mascotaSeleccionada.setColor_pelo(txtPelaje.getText().trim());
-                mascotaSeleccionada.setEdad(txtEdad.getText().trim());*/
-
-                ListaMascotas.set(filaSeleccionada, mascotaSeleccionada);
-                ArchivoLiso.actualizarMascotaEnArchivo(nombre_mOriginal, mascotaSeleccionada); 
-
-                DefaultTableModel modelo = (DefaultTableModel) this.jTable1_mascotas.getModel();
-                modelo.setValueAt(mascotaSeleccionada.getNombre_m(), filaSeleccionada, 0);
-
-                JOptionPane.showMessageDialog(null, "Mascota actualizada correctamente.");
-            }
+        
+        if(resultado == JOptionPane.OK_OPTION) {
+            mascotaSeleccionada.setNombre_m(txtNombre.getText());
+            mascotaSeleccionada.setApodo(txtApodo.getText());
+            mascotaSeleccionada.setEspecie(txtEspecie.getText());
+            mascotaSeleccionada.setRaza(txtRaza.getText());
+            mascotaSeleccionada.setColor_pelo(txtPelaje.getText());
+            mascotaSeleccionada.setEdad(txtEdad.getText()); 
+            
+            ListaMascotas.set(filaSeleccionada, mascotaSeleccionada);
+            ArchivoLiso.actualizarMascotaEnArchivo(mascotaActual, mascotaSeleccionada);
+            
+            DefaultTableModel modelo = (DefaultTableModel) this.jTable1_mascotas.getModel();
+            modelo.setValueAt(mascotaSeleccionada.getNombre_m(), filaSeleccionada, 0);
+            modelo.setValueAt(mascotaSeleccionada.getApodo(), filaSeleccionada, 1);
+            modelo.setValueAt(mascotaSeleccionada.getEspecie(), filaSeleccionada, 2);
+            modelo.setValueAt(mascotaSeleccionada.getRaza(), filaSeleccionada, 3);
+            modelo.setValueAt(mascotaSeleccionada.getColor_pelo(), filaSeleccionada, 4);
+            modelo.setValueAt(mascotaSeleccionada.getEdad(), filaSeleccionada, 5);
+            
+            JOptionPane.showMessageDialog(null, "Lista actualizada correctamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "Edición cancelada");
         }
+    } else {
+        JOptionPane.showMessageDialog(null, "Se canceló la acción sobre el elemento");
     }
+}
     }//GEN-LAST:event_jButton1_editarActionPerformed
 
     private void jButton1_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_eliminarActionPerformed
-    int filaSeleccionada = this.jTable1_mascotas.getSelectedRow(); 
+    int filaSeleccionada = this.jTable1_mascotas.getSelectedRow();
     String Nombre_m = ListaMascotas.get(filaSeleccionada).getNombre_m();
-    
-    if (filaSeleccionada == -1 || ListaMascotas.isEmpty() || filaSeleccionada >= ListaMascotas.size()) {
-        JOptionPane.showMessageDialog(null, "No hay datos para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
+        
         if (filaSeleccionada != -1){
-            int respuesta = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que deseas eliminar esta mascota? -> "
-                    + ListaMascotas.get(filaSeleccionada).Imprimir(), "Confirmar eliminación",
-                    JOptionPane.YES_NO_OPTION,
-                    JOptionPane.QUESTION_MESSAGE);
-            
-                    if(respuesta == JOptionPane.YES_OPTION){
+            int respuesta = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que deseas eliminar este dato? -> "
+            + ListaMascotas.get(filaSeleccionada).Imprimir(), "Confirmar eliminación",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE);
+                
+            if(respuesta ==JOptionPane.YES_OPTION){
                     ListaMascotas.remove(filaSeleccionada);
                     DefaultTableModel modelo = (DefaultTableModel) this.jTable1_mascotas.getModel();
                     modelo.removeRow(filaSeleccionada);
                     ArchivoLiso.eliminarDeArchivo(Nombre_m);
                     
-                    JOptionPane.showMessageDialog(null, "Mascota Eliminada");
+                    JOptionPane.showMessageDialog(null, "Elemento Eliminado");
                 }else{
-                JOptionPane.showMessageDialog(null, "Se canceló la acción sobre el elemento");
+                    JOptionPane.showMessageDialog(null, "Se canceló la acción sobre el elemento");
+                }
             }
-        }       
     }//GEN-LAST:event_jButton1_eliminarActionPerformed
 
     public  void cargarDatosLiso() {
     List<Mascota> mascotasCargadas = ArchivoLiso.cargarDesdeArchivo();
-    
-        ListaMascotas.clear();
-        ListaMascotas.addAll(mascotasCargadas);
+    ListaMascotas.clear();
+    DefaultTableModel modelo = (DefaultTableModel) jTable1_mascotas.getModel();
+    modelo.setRowCount(0);
 
     if (ListaMascotas == null) {
         JOptionPane.showMessageDialog(null, "No se pudo cargar la lista de clientes desde el archivo.");
         return;
     }
 
-    ListaMascotas.clear();
-    DefaultTableModel modelo = (DefaultTableModel) jTable1_mascotas.getModel();
-    modelo.setRowCount(0);
+        ListaMascotas.addAll(mascotasCargadas);
 
         for(Mascota a : mascotasCargadas){
             modelo.addRow(new Object[]{
@@ -374,7 +362,8 @@ public class Mascotas extends javax.swing.JFrame {
                 a.getApodo(),
                 a.getEspecie(),
                 a.getRaza(),
-                a.getColor_pelo()
+                a.getColor_pelo(),
+                a.getEdad()
             });
         }
     }

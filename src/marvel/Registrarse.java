@@ -273,8 +273,8 @@ cliente.setCorreo(correo);
 cliente.setContrasena(contrasena);
 cliente.setTel(tel);
 cliente.setDireccion(direccion);
-ListaClientes.add(cliente);
 
+ListaClientes.add(cliente);
 ArchivoPlano.guardarEnArchivo(ListaClientes);
 
 JOptionPane.showMessageDialog(null, "¡Cliente registrado exitosamente!", "Registro completado", JOptionPane.INFORMATION_MESSAGE);

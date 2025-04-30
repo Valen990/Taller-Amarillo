@@ -46,7 +46,6 @@ public class ArchivoPlano {
                     cliente.setDireccion(datos[6].trim());
                     
                     ListaClientes.add(cliente);
-                    //System.out.println("Salida" + datos[0].trim());
                 }
             }
             System.out.println("Datos de los clientes cargados correctamente.");
