@@ -4,6 +4,7 @@ package marvel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
 */
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ public class Clientes extends javax.swing.JFrame {
     public Clientes() {
         initComponents();
         cargarDatosPlano();
-        ListaClientes = new ArrayList<>();
+        //ListaClientes = new ArrayList<>();
     }
 
     @SuppressWarnings("unchecked")
@@ -249,6 +250,7 @@ public class Clientes extends javax.swing.JFrame {
     
     if(respuesta == JOptionPane.YES_OPTION) {
         JPanel panel = new JPanel(new GridLayout(0, 2));
+        panel.setPreferredSize(new Dimension(400, 150)); 
         
         JTextField txtNombre = new JTextField(clienteSeleccionado.getNombre());
         JTextField txtFamilia = new JTextField(clienteSeleccionado.getFamilia());
@@ -313,6 +315,7 @@ if (resultado == JOptionPane.OK_OPTION) {
         JOptionPane.showMessageDialog(null, "No hay datos para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
         return;
     }
+    
         if (filaSeleccionada != -1){
             int respuesta = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que deseas eliminar este cliente? -> "
                     + ListaClientes.get(filaSeleccionada).Imprimir(), "Confirmar eliminación",

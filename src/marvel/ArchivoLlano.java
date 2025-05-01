@@ -30,33 +30,36 @@ public class ArchivoLlano {
     }
    
     public static List<Vacunacion> cargarDesdeArchivo() {
-        List<Vacunacion> ListaVacunas = new ArrayList<>();
-        File archivo = new File(RUTA_ARCHIVO);
+    List<Vacunacion> ListaVacunas = new ArrayList<>();
+    File archivo = new File(RUTA_ARCHIVO);
 
-        if (!archivo.exists() || archivo.length() == 0) {
-            return ListaVacunas;
-        }
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(RUTA_ARCHIVO))) {
-            String linea;
-            while ((linea = reader.readLine()) != null) {
-                String[] datos = linea.split(", ");
-                if (datos.length == 4) {
-                    Vacunacion v = new Vacunacion();
-                    v.setNombre_m(datos[0].trim());
-                    v.setNombre(datos[1].trim());
-                    v.setVacuna(datos[2].trim());
-                    v.setEstado(datos[3].trim());
-                    
-                    ListaVacunas.add(v);
-                }
-            }
-            System.out.println("Datos de las vacunaciones cargados correctamente.");
-        } catch (IOException e) {
-            System.err.println("Error al cargar las vacunaciones: " + e.getMessage());
-        }
+    if (!archivo.exists() || archivo.length() == 0) {
         return ListaVacunas;
     }
+
+    try (BufferedReader reader = new BufferedReader(new FileReader(RUTA_ARCHIVO))) {
+        String linea;
+        while ((linea = reader.readLine()) != null) {
+            String[] datos = linea.split(",\\s*"); // Permite comas con o sin espacio
+            if (datos.length == 4) {
+                Vacunacion v = new Vacunacion();
+                v.setNombre_m(datos[0].trim());
+                v.setNombre(datos[1].trim());
+                v.setVacuna(datos[2].trim());
+                v.setEstado(datos[3].trim());
+                
+                ListaVacunas.add(v);
+            } else {
+                System.err.println("Línea ignorada (formato incorrecto): " + linea);
+            }
+        }
+        System.out.println("Datos de las vacunaciones cargados correctamente.");
+    } catch (IOException e) {
+        System.err.println("Error al cargar las vacunaciones: " + e.getMessage());
+    }
+    return ListaVacunas;
+}
+
     
     public static void eliminarDeArchivo(String nombre_m) {
         List<Vacunacion> ListaVacunas = cargarDesdeArchivo();

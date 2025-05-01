@@ -16,6 +16,7 @@ public class Vacunas extends javax.swing.JFrame {
     public Vacunas() {
         initComponents();
         ListaVacunas = new ArrayList<>();
+        cargarDatosLlano();
     }
 
     @SuppressWarnings("unchecked")
@@ -386,10 +387,20 @@ public class Vacunas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1_eliminarActionPerformed
 
-    /*public void cargarDatosLlano() {
-    List<Vacunacion> vacunasCargadas = ArchivoLlano.cargarDesdeArchivo();
+    public void cargarDatosLlano() {
+    java.util.List<Vacunacion> vacunasCargadas = ArchivoLlano.cargarDesdeArchivo();
+
+    if (vacunasCargadas == null) {
+        JOptionPane.showMessageDialog(null, "No se pudieron cargar los datos.");
+        return;
+    }
+
+    if (ListaVacunas == null) {
+        ListaVacunas = new ArrayList<>();
+    }
 
     ListaVacunas.clear();
+
     DefaultTableModel modelo = (DefaultTableModel) jTable1_vacunacion.getModel();
     modelo.setRowCount(0);
 
@@ -403,8 +414,8 @@ public class Vacunas extends javax.swing.JFrame {
             v.getEstado()
         });
     }
-}*/
-    
+}
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
