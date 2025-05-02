@@ -246,9 +246,9 @@ public class Mascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1_historialActionPerformed
 
     private void jButton1_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_editarActionPerformed
-int filaSeleccionada = this.jTable1_mascotas.getSelectedRow();
+    int filaSeleccionada = this.jTable1_mascotas.getSelectedRow();
         
-if (filaSeleccionada != -1) {
+    if (filaSeleccionada != -1) {
     Mascota mascotaSeleccionada = ListaMascotas.get(filaSeleccionada);
     String mascotaActual = mascotaSeleccionada.getNombre_m();
     

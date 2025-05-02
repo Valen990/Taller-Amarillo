@@ -21,7 +21,6 @@ public class Clientes extends javax.swing.JFrame {
     public Clientes() {
         initComponents();
         cargarDatosPlano();
-        //ListaClientes = new ArrayList<>();
     }
 
     @SuppressWarnings("unchecked")
@@ -230,81 +229,91 @@ public class Clientes extends javax.swing.JFrame {
 
     private void jButton1_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_editarActionPerformed
     int filaSeleccionada = this.jTable2_clientes_tab.getSelectedRow();
-    
+
     if (filaSeleccionada == -1 || ListaClientes.isEmpty() || filaSeleccionada >= ListaClientes.size()) {
         JOptionPane.showMessageDialog(null, "No hay datos para editar.", "Error", JOptionPane.ERROR_MESSAGE);
         return;
     }
-        
-    if (filaSeleccionada != -1) {
+
     Persona clienteSeleccionado = ListaClientes.get(filaSeleccionada);
     String nombreOriginal = clienteSeleccionado.getNombre();
-    
+
     int respuesta = JOptionPane.showConfirmDialog(
-        null, 
-        "¿Deseas editar este cliente?\n" + clienteSeleccionado.Imprimir(), 
+        null,
+        "¿Deseas editar este cliente?\n" + clienteSeleccionado.Imprimir(),
         "Confirmar edición",
         JOptionPane.YES_NO_OPTION,
         JOptionPane.QUESTION_MESSAGE
     );
-    
-    if(respuesta == JOptionPane.YES_OPTION) {
-        JPanel panel = new JPanel(new GridLayout(0, 2));
-        panel.setPreferredSize(new Dimension(400, 150)); 
-        
-        JTextField txtNombre = new JTextField(clienteSeleccionado.getNombre());
-        JTextField txtFamilia = new JTextField(clienteSeleccionado.getFamilia());
-        JTextField txtTelefono = new JTextField(clienteSeleccionado.getTel());
-        JTextField txtDireccion = new JTextField(clienteSeleccionado.getDireccion());
-        
-        panel.add(new JLabel("Nombre:"));
-        panel.add(txtNombre);
-        panel.add(new JLabel("Familia:"));
-        panel.add(txtFamilia);
-        panel.add(new JLabel("Teléfono:"));
-        panel.add(txtTelefono);
-        panel.add(new JLabel("Dirección:"));
-        panel.add(txtDireccion);
-        
-        int resultado = JOptionPane.showConfirmDialog(
-            null, 
-            panel, 
-            "Editar Cliente",
-            JOptionPane.OK_CANCEL_OPTION,
-            JOptionPane.PLAIN_MESSAGE
-        );
-        
-if (resultado == JOptionPane.OK_OPTION) {
-    if (txtNombre.getText().trim().isEmpty() || 
-        txtFamilia.getText().trim().isEmpty() || 
-        txtTelefono.getText().trim().isEmpty() || 
+    if (respuesta != JOptionPane.YES_OPTION) {
+        JOptionPane.showMessageDialog(null, "Edición cancelada");
+        return;
+    }
+
+    JPanel panel = new JPanel(new GridLayout(4, 2, 10, 10));
+    panel.setPreferredSize(new Dimension(400, 200));
+
+    JTextField txtNombre    = new JTextField(clienteSeleccionado.getNombre());
+    JTextField txtFamilia   = new JTextField(clienteSeleccionado.getFamilia());
+    JTextField txtTelefono  = new JTextField(String.valueOf(clienteSeleccionado.getTel()));
+    JTextField txtDireccion = new JTextField(clienteSeleccionado.getDireccion());
+
+    panel.add(new JLabel("Nombre:"));
+    panel.add(txtNombre);
+    panel.add(new JLabel("Familia:"));
+    panel.add(txtFamilia);
+    panel.add(new JLabel("Teléfono:"));
+    panel.add(txtTelefono);
+    panel.add(new JLabel("Dirección:"));
+    panel.add(txtDireccion);
+
+    int resultado = JOptionPane.showConfirmDialog(
+        null,
+        panel,
+        "Editar Cliente",
+        JOptionPane.OK_CANCEL_OPTION,
+        JOptionPane.PLAIN_MESSAGE
+    );
+    if (resultado != JOptionPane.OK_OPTION) {
+        JOptionPane.showMessageDialog(null, "Edición cancelada");
+        return;
+    }
+
+    if (txtNombre.getText().trim().isEmpty() ||
+        txtFamilia.getText().trim().isEmpty() ||
+        txtTelefono.getText().trim().isEmpty() ||
         txtDireccion.getText().trim().isEmpty()) {
-        
-        JOptionPane.showMessageDialog(null, "¡Todos los campos son obligatorios!", "Error", JOptionPane.ERROR_MESSAGE);
+
+        JOptionPane.showMessageDialog(null,
+            "¡Todos los campos son obligatorios!",
+            "Error", JOptionPane.ERROR_MESSAGE);
         return;
     }
 
     try {
-        long telefono = Long.parseLong(txtTelefono.getText().trim());
-        clienteSeleccionado.setTel((int) telefono); 
+        clienteSeleccionado.setNombre(txtNombre.getText().trim());
+        clienteSeleccionado.setFamilia(txtFamilia.getText().trim());
+        long telefonoLargo = Long.parseLong(txtTelefono.getText().trim());
+        clienteSeleccionado.setTel((int) telefonoLargo);
+        clienteSeleccionado.setDireccion(txtDireccion.getText().trim());
     } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(null, "¡Teléfono inválido! Debe contener solo números.", "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+            "¡Teléfono inválido! Debe contener solo números.",
+            "Error", JOptionPane.ERROR_MESSAGE);
         return;
     }
 
     ListaClientes.set(filaSeleccionada, clienteSeleccionado);
-    ArchivoPlano.actualizarClienteEnArchivo(nombreOriginal, clienteSeleccionado);
-    
     DefaultTableModel modelo = (DefaultTableModel) this.jTable2_clientes_tab.getModel();
+    
     modelo.setValueAt(clienteSeleccionado.getNombre(), filaSeleccionada, 0);
     modelo.setValueAt(clienteSeleccionado.getFamilia(), filaSeleccionada, 1);
     modelo.setValueAt(clienteSeleccionado.getTel(), filaSeleccionada, 2);
     modelo.setValueAt(clienteSeleccionado.getDireccion(), filaSeleccionada, 3);
-    
+
+    ArchivoPlano.actualizarClienteEnArchivo(nombreOriginal, clienteSeleccionado);
+
     JOptionPane.showMessageDialog(null, "Cliente actualizado correctamente.");
-}
-    }
-}
     }//GEN-LAST:event_jButton1_editarActionPerformed
 
     private void jButton1_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_eliminarActionPerformed

@@ -5,10 +5,15 @@
 package marvel;
 
 import java.awt.GridLayout;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -19,6 +24,7 @@ public class Inicio extends javax.swing.JFrame {
 
     public Inicio() {
         initComponents();
+        //cargarDatosPlano4();
     }
 
     @SuppressWarnings("unchecked")
@@ -156,17 +162,23 @@ public class Inicio extends javax.swing.JFrame {
 
     JTextField txtMascota = new JTextField();
     JTextField txtCliente = new JTextField();
-    JTextField txtFecha = new JTextField(); 
-    JTextField txtHora = new JTextField(); 
+
+    // Campos formateados para fecha y hora
+    DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+    DateFormat timeFormat = new SimpleDateFormat("HH:mm");
+
+    JFormattedTextField txtFecha = new JFormattedTextField(dateFormat);
+    JFormattedTextField txtHora = new JFormattedTextField(timeFormat);
+
     JTextField txtMotivo = new JTextField();
 
     panel.add(new JLabel("Mascota:"));
     panel.add(txtMascota);
     panel.add(new JLabel("Cliente:"));
     panel.add(txtCliente);
-    panel.add(new JLabel("Fecha (dd/mm/yyyy):"));
+    panel.add(new JLabel("Fecha (dd-MM-yyyy):"));
     panel.add(txtFecha);
-    panel.add(new JLabel("Hora (hh:mm):"));
+    panel.add(new JLabel("Hora (HH:mm):"));
     panel.add(txtHora);
     panel.add(new JLabel("Motivo:"));
     panel.add(txtMotivo);
@@ -193,23 +205,27 @@ public class Inicio extends javax.swing.JFrame {
         String fechaStr = txtFecha.getText();
         String horaStr = txtHora.getText();
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yy");
-        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("H:mm");
+        DateTimeFormatter formatterFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter formatterHora = DateTimeFormatter.ofPattern("HH:mm");
 
-        LocalDate fecha = LocalDate.parse(fechaStr, formatter);
-        LocalTime hora = LocalTime.parse(horaStr, formatoHora);
+        LocalDate fecha = LocalDate.parse(fechaStr, formatterFecha);
+        LocalTime hora = LocalTime.parse(horaStr, formatterHora);
 
         Cita cita = new Cita(nombre_m, nombre, fecha, hora, motivo_cita);
 
-        System.out.println("Cita registrada: " + cita.toString());
-
         ListaCitas.add(cita);
-        ArchivoPlano4.guardarCita(cita);
+        ArchivoPlano4.guardarEnArchivo(ListaCitas);
+        
 
         JOptionPane.showMessageDialog(this, "Cita agendada correctamente.");
     }
+
+} catch (DateTimeParseException e) {
+    JOptionPane.showMessageDialog(this,
+        "Error en el formato de fecha u hora.\nFormato esperado:\nFecha: dd-MM-yyyy\nHora: HH:mm",
+        "Error", JOptionPane.ERROR_MESSAGE);
 } catch (Exception ex) {
-    ex.printStackTrace(); 
+    ex.printStackTrace();
     JOptionPane.showMessageDialog(this,
         "Error al agendar la cita: " + ex.getMessage(),
         "Error", JOptionPane.ERROR_MESSAGE);

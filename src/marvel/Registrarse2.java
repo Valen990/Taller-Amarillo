@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Registrarse2 extends javax.swing.JFrame {
+    
     ArrayList<Mascota> ListaMascotas = new ArrayList<>();
+    
     public Registrarse2() {
         initComponents();
     }

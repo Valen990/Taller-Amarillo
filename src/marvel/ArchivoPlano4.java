@@ -14,13 +14,14 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ArchivoPlano4 {
     private static final String RUTA_ARCHIVO = "citas.txt";
-    private static final DateTimeFormatter fecha = DateTimeFormatter.ofPattern("dd-MM-yy");
-    private static final DateTimeFormatter hora = DateTimeFormatter.ofPattern("H:mm");
+    private static final DateTimeFormatter fecha = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    private static final DateTimeFormatter hora = DateTimeFormatter.ofPattern("HH:mm");
 
     public static void guardarEnArchivo(List<Cita> ListaCitas) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(RUTA_ARCHIVO))) {
@@ -45,11 +46,11 @@ public class ArchivoPlano4 {
         }
     }
 
-    public static void guardarCita(Cita cita) {
-        List<Cita> lista = cargarDesdeArchivo();
-        lista.add(cita);
-        guardarEnArchivo(lista);
-    }
+    /*public static void guardarCita(Cita cita) {
+        List<Cita> ListaCitas = cargarDesdeArchivo();
+        ListaCitas.add(cita);
+        guardarEnArchivo(ListaCitas);
+    }*/
 
     public static List<Cita> cargarDesdeArchivo() {
         List<Cita> ListaCitas = new ArrayList<>();
@@ -78,17 +79,53 @@ public class ArchivoPlano4 {
             System.err.println("Error al cargar los datos: " + e.getMessage());
         }
         return ListaCitas;
-    }
+        }
 
-    public static void eliminarDeArchivo(String nombre) {
-        List<Cita> lista = cargarDesdeArchivo();
-        boolean eliminado = lista.removeIf(cita -> cita.getNombre().equals(nombre));
+        public static void eliminarDeArchivo(Cita citaAEliminar) {
+        List<Cita> ListaCitas = cargarDesdeArchivo();
+        boolean eliminado = false;
 
-        if (eliminado) {
-            guardarEnArchivo(lista);
-            System.out.println("Cita eliminada correctamente.");
-        } else {
-            System.out.println("Cita no encontrada: " + nombre);
+        for (Iterator<Cita> it = ListaCitas.iterator(); it.hasNext(); ) {
+        Cita cita = it.next();
+        if (
+            cita.getNombre().equals(citaAEliminar.getNombre()) &&
+            cita.getNombre_m().equals(citaAEliminar.getNombre_m()) &&
+            cita.getFecha().equals(citaAEliminar.getFecha()) &&
+            cita.getHora().equals(citaAEliminar.getHora())
+        ) {
+            it.remove();  
+            eliminado = true;
+            break;
         }
     }
+
+    if (eliminado) {
+        guardarEnArchivo(ListaCitas);
+        System.out.println("Cita eliminada correctamente.");
+    } else {
+        System.out.println("No se encontró una cita que coincida exactamente.");
+    }
+    }
+    
+    public static void actualizarCitaEnArchivo(String citaActual, Cita datosActualizados) {
+    List<Cita> ListaCitas = cargarDesdeArchivo(); 
+    boolean actualizado = false;
+
+    for (int i = 0; i < ListaCitas.size(); i++) {
+        Cita cita = ListaCitas.get(i); 
+
+        if (cita.getNombre().equals(citaActual)) {
+            ListaCitas.set(i, datosActualizados); 
+            actualizado = true;
+            break;
+        }
+    }
+
+    if (actualizado) {
+        guardarEnArchivo(ListaCitas);
+        System.out.println("Cita actualizado correctamente.");
+    } else {
+        System.out.println("No se encontró un cliente con el nombre: " + citaActual);
+    }
+}
 }
