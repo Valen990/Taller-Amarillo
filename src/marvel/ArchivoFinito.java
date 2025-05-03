@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class ArchivoPlano4 {
+public class ArchivoFinito {
     private static final String RUTA_ARCHIVO = "citas.txt";
     private static final DateTimeFormatter fecha = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     private static final DateTimeFormatter hora = DateTimeFormatter.ofPattern("HH:mm");

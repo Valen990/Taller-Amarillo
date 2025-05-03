@@ -84,7 +84,12 @@ public class Clientes extends javax.swing.JFrame {
         jLabel1_nclientes.setText("Nuestros Clientes");
 
         jButton1_tab.setForeground(new java.awt.Color(51, 255, 204));
-        jButton1_tab.setText("Tablòn");
+        jButton1_tab.setText("Tablón");
+        jButton1_tab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_tabActionPerformed(evt);
+            }
+        });
 
         jButton2_clientes_tab.setBackground(new java.awt.Color(255, 255, 51));
         jButton2_clientes_tab.setForeground(new java.awt.Color(51, 255, 204));
@@ -347,6 +352,10 @@ public class Clientes extends javax.swing.JFrame {
     private void jButton1_verActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_verActionPerformed
         cargarDatosPlano();
     }//GEN-LAST:event_jButton1_verActionPerformed
+
+    private void jButton1_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_tabActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1_tabActionPerformed
 
     public void cargarDatosPlano() {
     List<Persona> clientesCargados = ArchivoPlano.cargarDesdeArchivo();

@@ -23,7 +23,7 @@ public class Gestion extends javax.swing.JFrame {
 
     public Gestion() {
     initComponents();
-    cargarDatosPlano4();
+    cargarDatosFinito();
     }
 
     @SuppressWarnings("unchecked")
@@ -73,6 +73,11 @@ public class Gestion extends javax.swing.JFrame {
         });
 
         jButton1_iniciarsesion.setText("Iniciar Sesión");
+        jButton1_iniciarsesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_iniciarsesionActionPerformed(evt);
+            }
+        });
 
         jButton1_buscar.setText("Buscar clientes o mascotas...");
 
@@ -94,6 +99,11 @@ public class Gestion extends javax.swing.JFrame {
 
         jButton2_clientes_tab.setForeground(new java.awt.Color(51, 255, 204));
         jButton2_clientes_tab.setText("Clientes");
+        jButton2_clientes_tab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2_clientes_tabActionPerformed(evt);
+            }
+        });
 
         jButton3_mascotas_tab.setForeground(new java.awt.Color(51, 255, 204));
         jButton3_mascotas_tab.setText("Mascotas");
@@ -105,6 +115,11 @@ public class Gestion extends javax.swing.JFrame {
 
         jButton4_vacunacion_tab.setForeground(new java.awt.Color(51, 255, 204));
         jButton4_vacunacion_tab.setText("Vacunación");
+        jButton4_vacunacion_tab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4_vacunacion_tabActionPerformed(evt);
+            }
+        });
 
         jTable1_citas_tab.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -234,15 +249,21 @@ public class Gestion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1_registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_registrarseActionPerformed
-        // TODO add your handling code here:
+        Registrarse registrarse = new Registrarse(); 
+        registrarse.setVisible(true); 
+        dispose();
     }//GEN-LAST:event_jButton1_registrarseActionPerformed
 
     private void jButton3_mascotas_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_mascotas_tabActionPerformed
-        // TODO add your handling code here:
+        Mascotas mascotas = new Mascotas(); 
+        mascotas.setVisible(true); 
+        dispose();
     }//GEN-LAST:event_jButton3_mascotas_tabActionPerformed
 
     private void jButton1_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_tabActionPerformed
-        // TODO add your handling code here:
+        Gestion gestion = new Gestion(); 
+        gestion.setVisible(true); 
+        dispose();
     }//GEN-LAST:event_jButton1_tabActionPerformed
 
     private void jButton2_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_editarActionPerformed
@@ -300,7 +321,7 @@ public class Gestion extends javax.swing.JFrame {
                     citaSeleccionada.setMotivo_cita(txtMotivo.getText().trim());
 
                     ListaCitas.set(filaSeleccionada, citaSeleccionada);
-                    ArchivoPlano4.actualizarCitaEnArchivo(nombreAnterior, citaSeleccionada);
+                    ArchivoFinito.actualizarCitaEnArchivo(nombreAnterior, citaSeleccionada);
 
                     DefaultTableModel modelo = (DefaultTableModel) this.jTable1_citas_tab.getModel();
                     modelo.setValueAt(citaSeleccionada.getNombre(), filaSeleccionada, 0);
@@ -344,7 +365,7 @@ public class Gestion extends javax.swing.JFrame {
             DefaultTableModel modelo = (DefaultTableModel) this.jTable1_citas_tab.getModel();
             modelo.removeRow(filaSeleccionada);
 
-            ArchivoPlano4.eliminarDeArchivo(citaSeleccionada);
+            ArchivoFinito.eliminarDeArchivo(citaSeleccionada);
 
             JOptionPane.showMessageDialog(null, "Cita eliminada correctamente.");
         } else {
@@ -355,8 +376,26 @@ public class Gestion extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_jButton1_eliminarActionPerformed
 
-    public  void cargarDatosPlano4() {
-    List<Cita> citasCargadas = ArchivoPlano4.cargarDesdeArchivo();
+    private void jButton2_clientes_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_clientes_tabActionPerformed
+        Clientes clientes = new Clientes(); 
+        clientes.setVisible(true); 
+        dispose();
+    }//GEN-LAST:event_jButton2_clientes_tabActionPerformed
+
+    private void jButton4_vacunacion_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_vacunacion_tabActionPerformed
+        Vacunas vacunas = new Vacunas(); 
+        vacunas.setVisible(true); 
+        dispose();
+    }//GEN-LAST:event_jButton4_vacunacion_tabActionPerformed
+
+    private void jButton1_iniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_iniciarsesionActionPerformed
+        IniciarSesion iniciarsesion = new IniciarSesion(); 
+        iniciarsesion.setVisible(true); 
+        dispose();    
+    }//GEN-LAST:event_jButton1_iniciarsesionActionPerformed
+
+    public void cargarDatosFinito() {
+    List<Cita> citasCargadas = ArchivoFinito.cargarDesdeArchivo();
     ListaCitas.clear();
     DefaultTableModel modelo = (DefaultTableModel) jTable1_citas_tab.getModel();
     modelo.setRowCount(0);

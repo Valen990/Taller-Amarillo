@@ -56,6 +56,11 @@ public class Vacunas extends javax.swing.JFrame {
 
         jButton1_iniciarsesion.setForeground(new java.awt.Color(51, 255, 204));
         jButton1_iniciarsesion.setText("Iniciar Sesión");
+        jButton1_iniciarsesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_iniciarsesionActionPerformed(evt);
+            }
+        });
 
         jButton1_buscar.setForeground(new java.awt.Color(51, 255, 204));
         jButton1_buscar.setText("Buscar clientes o mascotas...");
@@ -66,10 +71,20 @@ public class Vacunas extends javax.swing.JFrame {
         jLabel1_nclientes.setText("Nuestras Mascotas");
 
         jButton1_tab.setForeground(new java.awt.Color(51, 255, 204));
-        jButton1_tab.setText("Tablòn");
+        jButton1_tab.setText("Tablón");
+        jButton1_tab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_tabActionPerformed(evt);
+            }
+        });
 
         jButton2_clientes_tab.setForeground(new java.awt.Color(51, 255, 204));
         jButton2_clientes_tab.setText("Clientes");
+        jButton2_clientes_tab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2_clientes_tabActionPerformed(evt);
+            }
+        });
 
         jButton3_mascotas_tab.setForeground(new java.awt.Color(51, 255, 204));
         jButton3_mascotas_tab.setText("Mascotas");
@@ -81,7 +96,12 @@ public class Vacunas extends javax.swing.JFrame {
 
         jButton4_vacunacion_tab.setBackground(new java.awt.Color(255, 255, 51));
         jButton4_vacunacion_tab.setForeground(new java.awt.Color(51, 255, 204));
-        jButton4_vacunacion_tab.setText("Vacunaciòn");
+        jButton4_vacunacion_tab.setText("Vacunación");
+        jButton4_vacunacion_tab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4_vacunacion_tabActionPerformed(evt);
+            }
+        });
 
         jTable1_vacunacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -108,7 +128,8 @@ public class Vacunas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1_iniciarsesion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1_registrarse))
+                        .addComponent(jButton1_registrarse)
+                        .addGap(4, 4, 4))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1_fondoLayout.createSequentialGroup()
                         .addGap(168, 168, 168)
                         .addComponent(jLabel1_nclientes)
@@ -121,11 +142,11 @@ public class Vacunas extends javax.swing.JFrame {
                                 .addComponent(jButton1_tab)
                                 .addGap(33, 33, 33)
                                 .addComponent(jButton2_clientes_tab)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                                 .addComponent(jButton3_mascotas_tab)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton4_vacunacion_tab, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(15, 15, 15))
+                                .addComponent(jButton4_vacunacion_tab)))))
+                .addGap(11, 11, 11))
         );
         jPanel1_fondoLayout.setVerticalGroup(
             jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,9 +196,6 @@ public class Vacunas extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel1_fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jButton1_anadir)
@@ -186,6 +204,9 @@ public class Vacunas extends javax.swing.JFrame {
                 .addGap(97, 97, 97)
                 .addComponent(jButton1_editar)
                 .addGap(18, 18, 18))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel1_fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,11 +235,15 @@ public class Vacunas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1_registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_registrarseActionPerformed
-        // TODO add your handling code here:
+        Registrarse registrarse = new Registrarse(); 
+        registrarse.setVisible(true); 
+        dispose();
     }//GEN-LAST:event_jButton1_registrarseActionPerformed
 
     private void jButton3_mascotas_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_mascotas_tabActionPerformed
-        // TODO add your handling code here:
+        Mascotas mascotas = new Mascotas(); 
+        mascotas.setVisible(true); 
+        dispose();
     }//GEN-LAST:event_jButton3_mascotas_tabActionPerformed
 
     private void jButton1_anadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_anadirActionPerformed
@@ -386,6 +411,30 @@ public class Vacunas extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton1_eliminarActionPerformed
+
+    private void jButton1_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_tabActionPerformed
+        Gestion gestion = new Gestion(); 
+        gestion.setVisible(true); 
+        dispose();
+    }//GEN-LAST:event_jButton1_tabActionPerformed
+
+    private void jButton2_clientes_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_clientes_tabActionPerformed
+        Clientes clientes = new Clientes(); 
+        clientes.setVisible(true); 
+        dispose();
+    }//GEN-LAST:event_jButton2_clientes_tabActionPerformed
+
+    private void jButton4_vacunacion_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_vacunacion_tabActionPerformed
+        Vacunas vacunas = new Vacunas(); 
+        vacunas.setVisible(true); 
+        dispose();
+    }//GEN-LAST:event_jButton4_vacunacion_tabActionPerformed
+
+    private void jButton1_iniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_iniciarsesionActionPerformed
+        IniciarSesion iniciarsesion = new IniciarSesion(); 
+        iniciarsesion.setVisible(true); 
+        dispose();
+    }//GEN-LAST:event_jButton1_iniciarsesionActionPerformed
 
     public void cargarDatosLlano() {
     java.util.List<Vacunacion> vacunasCargadas = ArchivoLlano.cargarDesdeArchivo();

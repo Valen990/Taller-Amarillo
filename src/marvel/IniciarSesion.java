@@ -48,7 +48,6 @@ public class IniciarSesion extends javax.swing.JFrame {
         jLabel3.setText("Contraseña:");
 
         jPasswordField1_contrasena_c.setBackground(new java.awt.Color(51, 255, 204));
-        jPasswordField1_contrasena_c.setText("jPasswordField1");
 
         jLabel4_olvidar.setForeground(new java.awt.Color(51, 255, 204));
         jLabel4_olvidar.setText("¿Olvidaste tu contraseña?");
@@ -141,7 +140,7 @@ public class IniciarSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1_iniciar_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_iniciar_sesionActionPerformed
-    Persona a = new Persona();
+    Persona cliente = new Persona();
     
     if(jTextField1_correo_c.getText().trim().isEmpty() ||
             String.valueOf(jPasswordField1_contrasena_c.getPassword()).trim().isEmpty())
@@ -153,8 +152,8 @@ public class IniciarSesion extends javax.swing.JFrame {
         String correo = jTextField1_correo_c.getText().trim();
         String contrasena = String.valueOf(jPasswordField1_contrasena_c.getPassword());
         
-        a.setCorreo(correo);
-        a.setContrasena(contrasena);
+        cliente.setCorreo(correo);
+        cliente.setContrasena(contrasena);
         
         JOptionPane.showMessageDialog(null, "¡Cliente registrado de manera exitosa!");
 

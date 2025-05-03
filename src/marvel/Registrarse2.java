@@ -240,6 +240,10 @@ ListaMascotas.add(a);
 ArchivoLiso.guardarEnArchivo(ListaMascotas);
 
 JOptionPane.showMessageDialog(null, "¡Mascota registrada exitosamente!", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
+
+    Mascotas mascotas  = new Mascotas(); 
+    mascotas.setVisible(true); 
+    dispose();
     }//GEN-LAST:event_button1_registrarse2ActionPerformed
 
     public static void main(String args[]) {

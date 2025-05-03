@@ -278,6 +278,10 @@ ListaClientes.add(cliente);
 ArchivoPlano.guardarEnArchivo(ListaClientes);
 
 JOptionPane.showMessageDialog(null, "¡Cliente registrado exitosamente!", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
+
+    Registrarse2 registrarse2 = new Registrarse2(); 
+    registrarse2.setVisible(true); 
+    dispose();
     }//GEN-LAST:event_button1_registrarseActionPerformed
 
     private void jTextField2_telefono_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2_telefono_cActionPerformed

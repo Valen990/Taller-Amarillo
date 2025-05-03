@@ -12,7 +12,6 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -24,7 +23,6 @@ public class Inicio extends javax.swing.JFrame {
 
     public Inicio() {
         initComponents();
-        //cargarDatosPlano4();
     }
 
     @SuppressWarnings("unchecked")
@@ -41,7 +39,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel1_descripcion = new javax.swing.JLabel();
         jButton1_agendar = new javax.swing.JButton();
         jButton2_nuestrosservicios = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButton2_gestion = new javax.swing.JButton();
 
         jLabel1_buscar.setText("Buscar clientes o mascotas...");
 
@@ -60,6 +58,11 @@ public class Inicio extends javax.swing.JFrame {
 
         jButton1_iniciarsesion.setForeground(new java.awt.Color(51, 255, 204));
         jButton1_iniciarsesion.setText("Iniciar Sesión");
+        jButton1_iniciarsesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_iniciarsesionActionPerformed(evt);
+            }
+        });
 
         jButton1_buscar.setForeground(new java.awt.Color(51, 255, 204));
         jButton1_buscar.setText("Buscar clientes o mascotas...");
@@ -83,10 +86,20 @@ public class Inicio extends javax.swing.JFrame {
 
         jButton2_nuestrosservicios.setForeground(new java.awt.Color(51, 255, 204));
         jButton2_nuestrosservicios.setText("Nuestros Servicios");
+        jButton2_nuestrosservicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2_nuestrosserviciosActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(51, 255, 204));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Gestión Integral");
+        jButton2_gestion.setBackground(new java.awt.Color(51, 255, 204));
+        jButton2_gestion.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2_gestion.setText("Gestión Integral");
+        jButton2_gestion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2_gestionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1_fondoLayout = new javax.swing.GroupLayout(jPanel1_fondo);
         jPanel1_fondo.setLayout(jPanel1_fondoLayout);
@@ -110,7 +123,7 @@ public class Inicio extends javax.swing.JFrame {
                             .addGap(14, 14, 14))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_fondoLayout.createSequentialGroup()
                             .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton2)
+                                .addComponent(jButton2_gestion)
                                 .addGroup(jPanel1_fondoLayout.createSequentialGroup()
                                     .addComponent(jButton1_agendar)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -134,7 +147,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(jButton1_agendar)
                     .addComponent(jButton2_nuestrosservicios))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(jButton2_gestion)
                 .addGap(15, 15, 15))
         );
 
@@ -153,7 +166,9 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1_registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_registrarseActionPerformed
-        // TODO add your handling code here:
+        Registrarse registrarse = new Registrarse(); 
+        registrarse.setVisible(true); 
+        dispose();
     }//GEN-LAST:event_jButton1_registrarseActionPerformed
 
     private void jButton1_agendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_agendarActionPerformed
@@ -163,7 +178,6 @@ public class Inicio extends javax.swing.JFrame {
     JTextField txtMascota = new JTextField();
     JTextField txtCliente = new JTextField();
 
-    // Campos formateados para fecha y hora
     DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
     DateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
@@ -214,9 +228,8 @@ public class Inicio extends javax.swing.JFrame {
         Cita cita = new Cita(nombre_m, nombre, fecha, hora, motivo_cita);
 
         ListaCitas.add(cita);
-        ArchivoPlano4.guardarEnArchivo(ListaCitas);
+        ArchivoFinito.guardarEnArchivo(ListaCitas);
         
-
         JOptionPane.showMessageDialog(this, "Cita agendada correctamente.");
     }
 
@@ -231,6 +244,24 @@ public class Inicio extends javax.swing.JFrame {
         "Error", JOptionPane.ERROR_MESSAGE);
 }
     }//GEN-LAST:event_jButton1_agendarActionPerformed
+
+    private void jButton2_gestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_gestionActionPerformed
+        Gestion gestion = new Gestion(); 
+        gestion.setVisible(true); 
+        dispose();
+    }//GEN-LAST:event_jButton2_gestionActionPerformed
+
+    private void jButton1_iniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_iniciarsesionActionPerformed
+        IniciarSesion iniciarsesion = new IniciarSesion(); 
+        iniciarsesion.setVisible(true); 
+        dispose();
+    }//GEN-LAST:event_jButton1_iniciarsesionActionPerformed
+
+    private void jButton2_nuestrosserviciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_nuestrosserviciosActionPerformed
+        NuestrosServicios nuestrosservicios = new NuestrosServicios(); 
+        nuestrosservicios.setVisible(true); 
+        dispose();
+    }//GEN-LAST:event_jButton2_nuestrosserviciosActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -269,7 +300,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton1_buscar;
     private javax.swing.JButton jButton1_iniciarsesion;
     private javax.swing.JButton jButton1_registrarse;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton2_gestion;
     private javax.swing.JButton jButton2_nuestrosservicios;
     private javax.swing.JLabel jLabel1_buscar;
     private javax.swing.JLabel jLabel1_descripcion;
