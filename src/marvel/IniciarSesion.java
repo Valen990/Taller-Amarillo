@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 public class IniciarSesion extends javax.swing.JFrame {
 
     public IniciarSesion() {
-        initComponents();
+    initComponents();
     }
 
     @SuppressWarnings("unchecked")
@@ -54,6 +54,7 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         jButton1_iniciar_sesion.setBackground(new java.awt.Color(255, 255, 51));
         jButton1_iniciar_sesion.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jButton1_iniciar_sesion.setForeground(new java.awt.Color(0, 255, 204));
         jButton1_iniciar_sesion.setText("Iniciar Sesión");
         jButton1_iniciar_sesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,7 +160,10 @@ public class IniciarSesion extends javax.swing.JFrame {
 
     }catch(NumberFormatException e){
         JOptionPane.showMessageDialog(null, "Todos los campos deben ser válidos");   
-        }
+    }
+    Clientes clientes = new Clientes(); 
+    clientes.setVisible(true); 
+    dispose();
     }//GEN-LAST:event_jButton1_iniciar_sesionActionPerformed
 
     public static void main(String args[]) {

@@ -92,7 +92,7 @@ public class Registrarse extends javax.swing.JFrame {
         jLabel1_contrasena.setText("Contraseña:");
 
         jPasswordField1_contrasena_c.setBackground(new java.awt.Color(51, 255, 204));
-        jPasswordField1_contrasena_c.setActionCommand(null);
+        jPasswordField1_contrasena_c.setActionCommand("null");
         jPasswordField1_contrasena_c.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1_contrasena_cActionPerformed(evt);
@@ -110,7 +110,7 @@ public class Registrarse extends javax.swing.JFrame {
         });
 
         button1_registrarse.setBackground(new java.awt.Color(255, 255, 51));
-        button1_registrarse.setForeground(new java.awt.Color(255, 255, 255));
+        button1_registrarse.setForeground(new java.awt.Color(0, 255, 204));
         button1_registrarse.setLabel("Registrarse");
         button1_registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

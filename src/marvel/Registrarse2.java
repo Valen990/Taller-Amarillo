@@ -83,7 +83,7 @@ public class Registrarse2 extends javax.swing.JFrame {
         jTextField2_edad_c.setBackground(new java.awt.Color(51, 255, 204));
 
         button1_registrarse2.setBackground(new java.awt.Color(255, 255, 51));
-        button1_registrarse2.setForeground(new java.awt.Color(255, 255, 255));
+        button1_registrarse2.setForeground(new java.awt.Color(0, 255, 204));
         button1_registrarse2.setLabel("Registrarse");
         button1_registrarse2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,9 +119,9 @@ public class Registrarse2 extends javax.swing.JFrame {
                         .addComponent(button1_registrarse2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_form2Layout.createSequentialGroup()
-                .addGap(0, 47, Short.MAX_VALUE)
+                .addGap(0, 45, Short.MAX_VALUE)
                 .addComponent(jLabel1_titulo_m)
-                .addGap(36, 36, 36))
+                .addGap(38, 38, 38))
         );
         jPanel1_form2Layout.setVerticalGroup(
             jPanel1_form2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,51 +279,21 @@ JOptionPane.showMessageDialog(null, "¡Mascota registrada exitosamente!", "Regis
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button button1_registrarse;
-    private java.awt.Button button1_registrarse1;
     private java.awt.Button button1_registrarse2;
     private javax.swing.JLabel jLabel1_apodo;
-    private javax.swing.JLabel jLabel1_cedula;
-    private javax.swing.JLabel jLabel1_cedula1;
     private javax.swing.JLabel jLabel1_color;
-    private javax.swing.JLabel jLabel1_contrasena;
-    private javax.swing.JLabel jLabel1_contrasena1;
-    private javax.swing.JLabel jLabel1_correo;
-    private javax.swing.JLabel jLabel1_correo1;
     private javax.swing.JLabel jLabel1_edad;
     private javax.swing.JLabel jLabel1_especie;
-    private javax.swing.JLabel jLabel1_familia;
-    private javax.swing.JLabel jLabel1_familia1;
-    private javax.swing.JLabel jLabel1_nombre;
-    private javax.swing.JLabel jLabel1_nombre1;
     private javax.swing.JLabel jLabel1_nombre2;
     private javax.swing.JLabel jLabel1_raza;
-    private javax.swing.JLabel jLabel1_telefono;
-    private javax.swing.JLabel jLabel1_telefono1;
     private javax.swing.JLabel jLabel1_titulo_m;
-    private javax.swing.JLabel jLabel1_titulo_r;
-    private javax.swing.JLabel jLabel1_titulo_r1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1_form2;
-    private javax.swing.JPanel jPanel2_form;
-    private javax.swing.JPanel jPanel2_form1;
-    private javax.swing.JPasswordField jPasswordField1_contrasena_c;
-    private javax.swing.JPasswordField jPasswordField1_contrasena_c1;
     private javax.swing.JTextField jTextField2_apodo;
-    private javax.swing.JTextField jTextField2_cedula_c;
-    private javax.swing.JTextField jTextField2_cedula_c1;
     private javax.swing.JTextField jTextField2_color_c;
-    private javax.swing.JTextField jTextField2_correo_c;
-    private javax.swing.JTextField jTextField2_correo_c1;
     private javax.swing.JTextField jTextField2_edad_c;
     private javax.swing.JTextField jTextField2_especie_c;
-    private javax.swing.JTextField jTextField2_familia_c;
-    private javax.swing.JTextField jTextField2_familia_c1;
-    private javax.swing.JTextField jTextField2_nombre_c;
-    private javax.swing.JTextField jTextField2_nombre_c1;
     private javax.swing.JTextField jTextField2_nombre_c2;
     private javax.swing.JTextField jTextField2_raza_c;
-    private javax.swing.JTextField jTextField2_telefono_c;
-    private javax.swing.JTextField jTextField2_telefono_c1;
     // End of variables declaration//GEN-END:variables
 }

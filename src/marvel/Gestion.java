@@ -65,6 +65,7 @@ public class Gestion extends javax.swing.JFrame {
         jPanel1_fondo.setBackground(new java.awt.Color(51, 255, 204));
 
         jButton1_registrarse.setBackground(new java.awt.Color(255, 255, 51));
+        jButton1_registrarse.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_registrarse.setText("Registrarse");
         jButton1_registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +136,9 @@ public class Gestion extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1_citas_tab);
 
         jButton1_eliminar.setBackground(new java.awt.Color(255, 0, 0));
+        jButton1_eliminar.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_eliminar.setText("Eliminar");
+        jButton1_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_eliminarActionPerformed(evt);
@@ -143,7 +146,9 @@ public class Gestion extends javax.swing.JFrame {
         });
 
         jButton2_editar.setBackground(new java.awt.Color(51, 255, 0));
+        jButton2_editar.setForeground(new java.awt.Color(0, 0, 0));
         jButton2_editar.setText("Editar");
+        jButton2_editar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton2_editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2_editarActionPerformed(evt);
@@ -155,42 +160,43 @@ public class Gestion extends javax.swing.JFrame {
         jPanel1_fondoLayout.setHorizontalGroup(
             jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(jLabel1_desc)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_fondoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1_gestion)
-                .addGap(192, 192, 192))
-            .addGroup(jPanel1_fondoLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_fondoLayout.createSequentialGroup()
-                        .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                                .addComponent(jButton1_eliminar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2_editar))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_fondoLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jButton1_buscar)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton1_iniciarsesion)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1_registrarse)))
+                                .addComponent(jButton1_registrarse))
+                            .addGroup(jPanel1_fondoLayout.createSequentialGroup()
+                                .addComponent(jButton1_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(11, 11, 11))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_fondoLayout.createSequentialGroup()
-                        .addComponent(jButton1_tab)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2_clientes_tab)
-                        .addGap(49, 49, 49)
-                        .addComponent(jButton3_mascotas_tab)
-                        .addGap(37, 37, 37)
-                        .addComponent(jButton4_vacunacion_tab)
-                        .addGap(7, 7, 7))))
+                    .addGroup(jPanel1_fondoLayout.createSequentialGroup()
+                        .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1_fondoLayout.createSequentialGroup()
+                                .addComponent(jButton1_tab)
+                                .addGap(94, 94, 94)
+                                .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1_fondoLayout.createSequentialGroup()
+                                        .addComponent(jLabel1_desc)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(jPanel1_fondoLayout.createSequentialGroup()
+                                        .addComponent(jButton2_clientes_tab)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton3_mascotas_tab)
+                                        .addGap(78, 78, 78)
+                                        .addComponent(jButton4_vacunacion_tab)))))
+                        .addContainerGap(12, Short.MAX_VALUE))))
+            .addGroup(jPanel1_fondoLayout.createSequentialGroup()
+                .addGap(261, 261, 261)
+                .addComponent(jLabel1_gestion)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1_fondoLayout.setVerticalGroup(
             jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,9 +213,9 @@ public class Gestion extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1_tab)
-                    .addComponent(jButton2_clientes_tab)
                     .addComponent(jButton3_mascotas_tab)
-                    .addComponent(jButton4_vacunacion_tab))
+                    .addComponent(jButton4_vacunacion_tab)
+                    .addComponent(jButton2_clientes_tab))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -225,13 +231,13 @@ public class Gestion extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel1_fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel1_fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

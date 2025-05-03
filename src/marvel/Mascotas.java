@@ -120,7 +120,9 @@ public class Mascotas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1_mascotas);
 
         jButton1_editar.setBackground(new java.awt.Color(51, 255, 51));
+        jButton1_editar.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_editar.setText("Editar");
+        jButton1_editar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1_editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_editarActionPerformed(evt);
@@ -128,7 +130,9 @@ public class Mascotas extends javax.swing.JFrame {
         });
 
         jButton1_eliminar.setBackground(new java.awt.Color(255, 51, 51));
+        jButton1_eliminar.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_eliminar.setText("Eliminar");
+        jButton1_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_eliminarActionPerformed(evt);
@@ -136,7 +140,9 @@ public class Mascotas extends javax.swing.JFrame {
         });
 
         jButton1_historial.setBackground(new java.awt.Color(255, 51, 0));
+        jButton1_historial.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_historial.setText("Historial");
+        jButton1_historial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1_historial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_historialActionPerformed(evt);
@@ -148,38 +154,43 @@ public class Mascotas extends javax.swing.JFrame {
         jPanel1_fondoLayout.setHorizontalGroup(
             jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1_fondoLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_fondoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1_buscar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1_iniciarsesion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1_registrarse)
-                        .addGap(4, 4, 4))
-                    .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
                         .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                                .addComponent(jButton1_historial)
-                                .addGap(90, 90, 90)
-                                .addComponent(jButton1_editar)
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton1_buscar)
+                                .addGap(23, 23, 23)
+                                .addComponent(jButton1_iniciarsesion)
+                                .addGap(13, 13, 13))
+                            .addGroup(jPanel1_fondoLayout.createSequentialGroup()
+                                .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton1_tab)
+                                    .addGroup(jPanel1_fondoLayout.createSequentialGroup()
+                                        .addGap(180, 180, 180)
+                                        .addComponent(jButton2_clientes_tab)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1_eliminar))
-                            .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                                .addGap(140, 140, 140)
-                                .addComponent(jLabel1_nclientes)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                                .addComponent(jButton1_tab)
-                                .addGap(33, 33, 33)
-                                .addComponent(jButton2_clientes_tab)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                                 .addComponent(jButton3_mascotas_tab)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton4_vacunacion_tab)))))
-                .addGap(11, 11, 11))
+                                .addGap(77, 77, 77)))
+                        .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4_vacunacion_tab)
+                            .addComponent(jButton1_registrarse, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(jPanel1_fondoLayout.createSequentialGroup()
+                        .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1_fondoLayout.createSequentialGroup()
+                                .addComponent(jButton1_historial, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(161, 161, 161)
+                                .addComponent(jButton1_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_fondoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1_nclientes)
+                .addGap(263, 263, 263))
         );
         jPanel1_fondoLayout.setVerticalGroup(
             jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,22 +200,22 @@ public class Mascotas extends javax.swing.JFrame {
                     .addComponent(jButton1_registrarse)
                     .addComponent(jButton1_iniciarsesion)
                     .addComponent(jButton1_buscar))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1_nclientes)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2_clientes_tab)
                     .addComponent(jButton1_tab)
                     .addComponent(jButton3_mascotas_tab)
                     .addComponent(jButton4_vacunacion_tab))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1_editar)
                     .addComponent(jButton1_historial)
                     .addComponent(jButton1_eliminar))
-                .addGap(30, 30, 30))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -213,7 +224,7 @@ public class Mascotas extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel1_fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

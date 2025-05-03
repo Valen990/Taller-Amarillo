@@ -43,7 +43,6 @@ public class Clientes extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2_clientes_tab = new javax.swing.JTable();
         jButton1_eliminar = new javax.swing.JButton();
-        jButton1_ver = new javax.swing.JButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -65,7 +64,7 @@ public class Clientes extends javax.swing.JFrame {
         jPanel1_fondo.setBackground(new java.awt.Color(51, 255, 204));
 
         jButton1_registrarse.setBackground(new java.awt.Color(255, 255, 51));
-        jButton1_registrarse.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1_registrarse.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_registrarse.setText("Registrarse");
         jButton1_registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +74,11 @@ public class Clientes extends javax.swing.JFrame {
 
         jButton1_iniciarsesion.setForeground(new java.awt.Color(51, 255, 204));
         jButton1_iniciarsesion.setText("Iniciar Sesión");
+        jButton1_iniciarsesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_iniciarsesionActionPerformed(evt);
+            }
+        });
 
         jButton1_buscar.setForeground(new java.awt.Color(51, 255, 204));
         jButton1_buscar.setText("Buscar clientes o mascotas...");
@@ -94,6 +98,11 @@ public class Clientes extends javax.swing.JFrame {
         jButton2_clientes_tab.setBackground(new java.awt.Color(255, 255, 51));
         jButton2_clientes_tab.setForeground(new java.awt.Color(51, 255, 204));
         jButton2_clientes_tab.setText("Clientes");
+        jButton2_clientes_tab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2_clientes_tabActionPerformed(evt);
+            }
+        });
 
         jButton3_mascotas_tab.setForeground(new java.awt.Color(51, 255, 204));
         jButton3_mascotas_tab.setText("Mascotas");
@@ -104,10 +113,17 @@ public class Clientes extends javax.swing.JFrame {
         });
 
         jButton4_vacunacion_tab.setForeground(new java.awt.Color(51, 255, 204));
-        jButton4_vacunacion_tab.setText("Vacunaciòn");
+        jButton4_vacunacion_tab.setText("Vacunación");
+        jButton4_vacunacion_tab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4_vacunacion_tabActionPerformed(evt);
+            }
+        });
 
         jButton1_editar.setBackground(new java.awt.Color(51, 255, 51));
+        jButton1_editar.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_editar.setText("Editar");
+        jButton1_editar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1_editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_editarActionPerformed(evt);
@@ -129,19 +145,13 @@ public class Clientes extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable2_clientes_tab);
 
-        jButton1_eliminar.setBackground(new java.awt.Color(255, 102, 102));
+        jButton1_eliminar.setBackground(new java.awt.Color(255, 0, 0));
+        jButton1_eliminar.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_eliminar.setText("Eliminar");
         jButton1_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_eliminarActionPerformed(evt);
-            }
-        });
-
-        jButton1_ver.setText("Ver");
-        jButton1_ver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1_verActionPerformed(evt);
             }
         });
 
@@ -152,29 +162,24 @@ public class Clientes extends javax.swing.JFrame {
             .addGroup(jPanel1_fondoLayout.createSequentialGroup()
                 .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1_fondoLayout.createSequentialGroup()
+                                .addComponent(jButton1_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2)
                             .addGroup(jPanel1_fondoLayout.createSequentialGroup()
                                 .addComponent(jButton1_tab)
-                                .addGap(35, 35, 35)
+                                .addGap(84, 84, 84)
                                 .addComponent(jButton2_clientes_tab)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton3_mascotas_tab)
-                                .addGap(32, 32, 32)
-                                .addComponent(jButton4_vacunacion_tab, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10))
-                            .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                                .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                                        .addComponent(jButton1_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(133, 133, 133)
-                                        .addComponent(jButton1_ver)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton1_editar)))
-                                .addGap(0, 19, Short.MAX_VALUE))))
+                                .addGap(75, 75, 75)
+                                .addComponent(jButton4_vacunacion_tab)))
+                        .addGap(10, 10, 10))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_fondoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(198, Short.MAX_VALUE)
                         .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1_nclientes)
                             .addComponent(jButton1_buscar))
@@ -200,13 +205,12 @@ public class Clientes extends javax.swing.JFrame {
                     .addComponent(jButton1_tab)
                     .addComponent(jButton3_mascotas_tab)
                     .addComponent(jButton4_vacunacion_tab))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1_editar)
-                    .addComponent(jButton1_eliminar)
-                    .addComponent(jButton1_ver))
+                    .addComponent(jButton1_eliminar))
                 .addGap(24, 24, 24))
         );
 
@@ -225,11 +229,15 @@ public class Clientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1_registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_registrarseActionPerformed
-
+        Registrarse registrarse = new Registrarse(); 
+        registrarse.setVisible(true); 
+        dispose();    
     }//GEN-LAST:event_jButton1_registrarseActionPerformed
 
     private void jButton3_mascotas_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_mascotas_tabActionPerformed
-       
+        Mascotas mascotas = new Mascotas(); 
+        mascotas.setVisible(true); 
+        dispose();       
     }//GEN-LAST:event_jButton3_mascotas_tabActionPerformed
 
     private void jButton1_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_editarActionPerformed
@@ -349,13 +357,29 @@ public class Clientes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1_eliminarActionPerformed
 
-    private void jButton1_verActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_verActionPerformed
-        cargarDatosPlano();
-    }//GEN-LAST:event_jButton1_verActionPerformed
-
     private void jButton1_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_tabActionPerformed
-        // TODO add your handling code here:
+        Gestion gestion = new Gestion(); 
+        gestion.setVisible(true); 
+        dispose();
     }//GEN-LAST:event_jButton1_tabActionPerformed
+
+    private void jButton1_iniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_iniciarsesionActionPerformed
+        IniciarSesion iniciarsesion = new IniciarSesion(); 
+        iniciarsesion.setVisible(true); 
+        dispose();
+    }//GEN-LAST:event_jButton1_iniciarsesionActionPerformed
+
+    private void jButton4_vacunacion_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_vacunacion_tabActionPerformed
+        Vacunas vacunas = new Vacunas(); 
+        vacunas.setVisible(true); 
+        dispose();
+    }//GEN-LAST:event_jButton4_vacunacion_tabActionPerformed
+
+    private void jButton2_clientes_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_clientes_tabActionPerformed
+        Clientes clientes = new Clientes(); 
+        clientes.setVisible(true); 
+        dispose();
+    }//GEN-LAST:event_jButton2_clientes_tabActionPerformed
 
     public void cargarDatosPlano() {
     List<Persona> clientesCargados = ArchivoPlano.cargarDesdeArchivo();
@@ -420,7 +444,6 @@ public class Clientes extends javax.swing.JFrame {
     private javax.swing.JButton jButton1_iniciarsesion;
     private javax.swing.JButton jButton1_registrarse;
     private javax.swing.JButton jButton1_tab;
-    private javax.swing.JButton jButton1_ver;
     private javax.swing.JButton jButton2_clientes_tab;
     private javax.swing.JButton jButton3_mascotas_tab;
     private javax.swing.JButton jButton4_vacunacion_tab;

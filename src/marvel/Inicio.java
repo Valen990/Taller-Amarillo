@@ -48,7 +48,7 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1_fondo.setBackground(new java.awt.Color(51, 255, 204));
 
         jButton1_registrarse.setBackground(new java.awt.Color(255, 255, 51));
-        jButton1_registrarse.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1_registrarse.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_registrarse.setText("Registrarse");
         jButton1_registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +76,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel1_descripcion.setText("Con todo el amor y profesionalismo para tu mejor amigo");
 
         jButton1_agendar.setBackground(new java.awt.Color(255, 255, 51));
-        jButton1_agendar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1_agendar.setForeground(new java.awt.Color(0, 255, 204));
         jButton1_agendar.setText("Agendar Cita");
         jButton1_agendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +95,7 @@ public class Inicio extends javax.swing.JFrame {
         jButton2_gestion.setBackground(new java.awt.Color(51, 255, 204));
         jButton2_gestion.setForeground(new java.awt.Color(255, 255, 255));
         jButton2_gestion.setText("Gestión Integral");
+        jButton2_gestion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jButton2_gestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2_gestionActionPerformed(evt);
@@ -122,12 +123,11 @@ public class Inicio extends javax.swing.JFrame {
                                 .addComponent(jLabel1_descripcion))
                             .addGap(14, 14, 14))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_fondoLayout.createSequentialGroup()
-                            .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton2_gestion)
-                                .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                                    .addComponent(jButton1_agendar)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2_nuestrosservicios)))
+                            .addComponent(jButton1_agendar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton2_nuestrosservicios, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton2_gestion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(21, 21, 21)))))
         );
         jPanel1_fondoLayout.setVerticalGroup(
@@ -146,8 +146,8 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1_agendar)
                     .addComponent(jButton2_nuestrosservicios))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(jButton2_gestion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(jButton2_gestion, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
 
@@ -242,7 +242,10 @@ public class Inicio extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(this,
         "Error al agendar la cita: " + ex.getMessage(),
         "Error", JOptionPane.ERROR_MESSAGE);
-}
+    }
+    Gestion gestion = new Gestion(); 
+    gestion.setVisible(true); 
+    dispose();
     }//GEN-LAST:event_jButton1_agendarActionPerformed
 
     private void jButton2_gestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_gestionActionPerformed

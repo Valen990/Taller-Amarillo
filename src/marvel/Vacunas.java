@@ -46,7 +46,7 @@ public class Vacunas extends javax.swing.JFrame {
         jPanel1_fondo.setBackground(new java.awt.Color(51, 255, 204));
 
         jButton1_registrarse.setBackground(new java.awt.Color(255, 255, 51));
-        jButton1_registrarse.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1_registrarse.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_registrarse.setText("Registrarse");
         jButton1_registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,7 +68,7 @@ public class Vacunas extends javax.swing.JFrame {
         jLabel1_nclientes.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1_nclientes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1_nclientes.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1_nclientes.setText("Nuestras Mascotas");
+        jLabel1_nclientes.setText("Nuestras Vacunas");
 
         jButton1_tab.setForeground(new java.awt.Color(51, 255, 204));
         jButton1_tab.setText("Tablón");
@@ -121,32 +121,30 @@ public class Vacunas extends javax.swing.JFrame {
         jPanel1_fondoLayout.setHorizontalGroup(
             jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_fondoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1_nclientes)
+                    .addComponent(jButton1_buscar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1_iniciarsesion)
+                .addGap(9, 9, 9)
+                .addComponent(jButton1_registrarse)
+                .addContainerGap())
+            .addGroup(jPanel1_fondoLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1_buscar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1_iniciarsesion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1_registrarse)
-                        .addGap(4, 4, 4))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1_fondoLayout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(jLabel1_nclientes)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1_fondoLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                                .addComponent(jButton1_tab)
-                                .addGap(33, 33, 33)
-                                .addComponent(jButton2_clientes_tab)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                                .addComponent(jButton3_mascotas_tab)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton4_vacunacion_tab)))))
-                .addGap(11, 11, 11))
+                        .addComponent(jButton1_tab)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2_clientes_tab)
+                        .addGap(75, 75, 75)
+                        .addComponent(jButton3_mascotas_tab)
+                        .addGap(52, 52, 52)
+                        .addComponent(jButton4_vacunacion_tab)
+                        .addGap(11, 11, 11))
+                    .addGroup(jPanel1_fondoLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(12, Short.MAX_VALUE))))
         );
         jPanel1_fondoLayout.setVerticalGroup(
             jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,9 +154,9 @@ public class Vacunas extends javax.swing.JFrame {
                     .addComponent(jButton1_registrarse)
                     .addComponent(jButton1_iniciarsesion)
                     .addComponent(jButton1_buscar))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1_nclientes)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2_clientes_tab)
                     .addComponent(jButton1_tab)
@@ -169,7 +167,9 @@ public class Vacunas extends javax.swing.JFrame {
         );
 
         jButton1_anadir.setBackground(new java.awt.Color(51, 153, 255));
+        jButton1_anadir.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_anadir.setText("Añadir");
+        jButton1_anadir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1_anadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_anadirActionPerformed(evt);
@@ -177,7 +177,9 @@ public class Vacunas extends javax.swing.JFrame {
         });
 
         jButton1_editar.setBackground(new java.awt.Color(0, 255, 0));
+        jButton1_editar.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_editar.setText("Editar");
+        jButton1_editar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1_editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_editarActionPerformed(evt);
@@ -185,7 +187,9 @@ public class Vacunas extends javax.swing.JFrame {
         });
 
         jButton1_eliminar.setBackground(new java.awt.Color(255, 51, 51));
+        jButton1_eliminar.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_eliminar.setText("Eliminar");
+        jButton1_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_eliminarActionPerformed(evt);
@@ -197,16 +201,16 @@ public class Vacunas extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jButton1_anadir)
+                .addGap(20, 20, 20)
+                .addComponent(jButton1_anadir, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1_eliminar)
-                .addGap(97, 97, 97)
-                .addComponent(jButton1_editar)
+                .addComponent(jButton1_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(111, 111, 111)
+                .addComponent(jButton1_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel1_fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 3, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +221,7 @@ public class Vacunas extends javax.swing.JFrame {
                     .addComponent(jButton1_anadir)
                     .addComponent(jButton1_editar)
                     .addComponent(jButton1_eliminar))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

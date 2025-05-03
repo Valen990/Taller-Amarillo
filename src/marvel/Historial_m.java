@@ -49,7 +49,7 @@ public class Historial_m extends javax.swing.JFrame {
         jPanel1_fondo.setBackground(new java.awt.Color(51, 255, 204));
 
         jButton1_registrarse.setBackground(new java.awt.Color(255, 255, 51));
-        jButton1_registrarse.setForeground(new java.awt.Color(51, 255, 204));
+        jButton1_registrarse.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_registrarse.setText("Registrarse");
         jButton1_registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +120,9 @@ public class Historial_m extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1_historial);
 
         jButton1_editar.setBackground(new java.awt.Color(51, 255, 51));
+        jButton1_editar.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_editar.setText("Editar");
+        jButton1_editar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1_editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_editarActionPerformed(evt);
@@ -128,7 +130,9 @@ public class Historial_m extends javax.swing.JFrame {
         });
 
         jButton1_eliminar.setBackground(new java.awt.Color(255, 51, 51));
+        jButton1_eliminar.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_eliminar.setText("Eliminar");
+        jButton1_eliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_eliminarActionPerformed(evt);
@@ -136,7 +140,9 @@ public class Historial_m extends javax.swing.JFrame {
         });
 
         jButton1_añadir.setBackground(new java.awt.Color(51, 51, 255));
+        jButton1_añadir.setForeground(new java.awt.Color(0, 0, 0));
         jButton1_añadir.setText("Añadir");
+        jButton1_añadir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1_añadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_añadirActionPerformed(evt);
@@ -161,11 +167,11 @@ public class Historial_m extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1_fondoLayout.createSequentialGroup()
-                                .addComponent(jButton1_añadir)
+                                .addComponent(jButton1_añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1_editar)
-                                .addGap(89, 89, 89)
-                                .addComponent(jButton1_eliminar))
+                                .addComponent(jButton1_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(66, 66, 66)
+                                .addComponent(jButton1_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1_fondoLayout.createSequentialGroup()
                                 .addGap(140, 140, 140)
                                 .addComponent(jLabel1_nclientes)
@@ -199,12 +205,12 @@ public class Historial_m extends javax.swing.JFrame {
                     .addComponent(jButton4_vacunacion_tab))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1_eliminar)
                     .addComponent(jButton1_editar)
                     .addComponent(jButton1_añadir))
-                .addGap(30, 30, 30))
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
