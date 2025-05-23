@@ -6,15 +6,20 @@ package marvel;
 
 import java.awt.GridLayout;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+
+//Estos imports son de lo del PDF jujuju.
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileWriter;
 
 public class Historial_m extends javax.swing.JFrame {
 
@@ -24,6 +29,81 @@ public class Historial_m extends javax.swing.JFrame {
     initComponents();
     cargarDatosGrueso();
     }
+
+    private void generarHTMLyAbrir(Historial historial) throws Exception {
+    File htmlFile = File.createTempFile("historial", ".html");
+    
+    String html = "<!DOCTYPE html>\n" +
+                 "<html>\n" +
+                 "<head>\n" +
+                 "  <meta charset='UTF-8'>\n" +
+                 "  <title>Historial Médico - " + historial.getNombre_m() + "</title>\n" +
+                 "  <style>\n" +
+                 "    body { \n" +
+                 "      font-family: 'Arial', sans-serif; \n" +
+                 "      margin: 0; \n" +
+                 "      padding: 20px; \n" +
+                 "      color: #333;\n" +
+                 "      background-color: #f0f8ff;\n" +
+                 "    }\n" +
+                 "    .header { \n" +
+                 "      text-align: center; \n" +
+                 "      margin-bottom: 20px; \n" +
+                 "      padding-bottom: 10px; \n" +
+                 "      border-bottom: 2px solid #00BFFF;\n" +
+                 "    }\n" +
+                 "    h1 { \n" +
+                 "      color: #00BFFF;\n" +
+                 "      margin-top: 10px;\n" +
+                 "    }\n" +
+                 "    .historial-info { \n" +
+                 "      background: white; \n" +
+                 "      padding: 20px; \n" +
+                 "      border-radius: 8px; \n" +
+                 "      box-shadow: 0 2px 5px rgba(0,0,0,0.1);\n" +
+                 "      border-left: 4px solid #00BFFF;\n" +
+                 "    }\n" +
+                 "    .instrucciones { \n" +
+                 "      background: #e6f2ff;\n" +
+                 "      padding: 15px; \n" +
+                 "      border-radius: 5px; \n" +
+                 "      margin-top: 30px;\n" +
+                 "    }\n" +
+                 "    @media print {\n" +
+                 "      .instrucciones { display: none !important; }\n" +
+                 "      body { background-color: white; }\n" +
+                 "      .historial-info { box-shadow: none; }\n" +
+                 "    }\n" +
+                 "  </style>\n" +
+                 "</head>\n" +
+                 "<body>\n" +
+                 "  <div class='header'>\n" +
+                 "    <h1>Historial Médico</h1>\n" +  
+                 "  </div>\n" +
+                 "  \n" +
+                 "  <div class='historial-info'>\n" +
+                 "    <p><strong>Mascota:</strong> " + historial.getNombre_m() + "</p>\n" +
+                 "    <p><strong>Observaciones:</strong> " + historial.getObservaciones() + "</p>\n" +
+                 "    <p><strong>Fecha:</strong> " + new SimpleDateFormat("dd/MM/yyyy").format(historial.getFecha()) + "</p>\n" +
+                 "  </div>\n" +
+                 "  \n" +
+                 "  <div class='instrucciones'>\n" +
+                 "    <h3>¿Cómo guardar como PDF?</h3>\n" +
+                 "    <ol>\n" +
+                 "      <li>Presiona <kbd>Ctrl + P</kbd> (Windows) o <kbd>Cmd + P</kbd> (Mac).</li>\n" +
+                 "      <li>Selecciona <b>'Guardar como PDF'</b> como impresora.</li>\n" +
+                 "      <li>¡Listo! Elige la ubicación y guarda.</li>\n" +
+                 "    </ol>\n" +
+                 "  </div>\n" +
+                 "</body>\n" +
+                 "</html>";
+
+    try (FileWriter writer = new FileWriter(htmlFile)) {
+        writer.write(html);
+    }
+    
+    Desktop.getDesktop().browse(htmlFile.toURI());
+}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -43,6 +123,7 @@ public class Historial_m extends javax.swing.JFrame {
         jButton1_editar = new javax.swing.JButton();
         jButton1_eliminar = new javax.swing.JButton();
         jButton1_añadir = new javax.swing.JButton();
+        jButton1_verdetalles = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -149,6 +230,16 @@ public class Historial_m extends javax.swing.JFrame {
             }
         });
 
+        jButton1_verdetalles.setBackground(new java.awt.Color(255, 102, 0));
+        jButton1_verdetalles.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1_verdetalles.setText("Ver detalles");
+        jButton1_verdetalles.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton1_verdetalles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_verdetallesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1_fondoLayout = new javax.swing.GroupLayout(jPanel1_fondo);
         jPanel1_fondo.setLayout(jPanel1_fondoLayout);
         jPanel1_fondoLayout.setHorizontalGroup(
@@ -168,9 +259,11 @@ public class Historial_m extends javax.swing.JFrame {
                         .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1_fondoLayout.createSequentialGroup()
                                 .addComponent(jButton1_añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1_verdetalles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton1_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton1_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1_fondoLayout.createSequentialGroup()
                                 .addGap(140, 140, 140)
@@ -205,12 +298,13 @@ public class Historial_m extends javax.swing.JFrame {
                     .addComponent(jButton4_vacunacion_tab))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPanel1_fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1_eliminar)
                     .addComponent(jButton1_editar)
-                    .addComponent(jButton1_añadir))
-                .addGap(20, 20, 20))
+                    .addComponent(jButton1_añadir)
+                    .addComponent(jButton1_verdetalles))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -304,7 +398,6 @@ public class Historial_m extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Se canceló la acción sobre el elemento");
     }
 }
-
     }//GEN-LAST:event_jButton1_editarActionPerformed
 
     private void jButton1_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_eliminarActionPerformed
@@ -400,7 +493,7 @@ public class Historial_m extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(this,
         "Error al agregar historial: " + ex.getMessage(),
         "Error", JOptionPane.ERROR_MESSAGE);
-}
+    }
     }//GEN-LAST:event_jButton1_añadirActionPerformed
 
     private void jButton1_tabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_tabActionPerformed
@@ -426,6 +519,20 @@ public class Historial_m extends javax.swing.JFrame {
         iniciarsesion.setVisible(true); 
         dispose();      
     }//GEN-LAST:event_jButton1_iniciarsesionActionPerformed
+
+    private void jButton1_verdetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_verdetallesActionPerformed
+    int filaSeleccionada = jTable1_historial.getSelectedRow();
+    if (filaSeleccionada != -1) {
+        try {
+            Historial historial = ListaHistorial.get(filaSeleccionada);
+            generarHTMLyAbrir(historial); 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al generar HTML: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Selecciona un historial primero.", "Error", JOptionPane.WARNING_MESSAGE);
+    }
+    }//GEN-LAST:event_jButton1_verdetallesActionPerformed
 
     public  void cargarDatosGrueso() {
     List<Historial> historialesCargados = ArchivoGrueso.cargarDesdeArchivo();
@@ -490,6 +597,7 @@ public class Historial_m extends javax.swing.JFrame {
     private javax.swing.JButton jButton1_iniciarsesion;
     private javax.swing.JButton jButton1_registrarse;
     private javax.swing.JButton jButton1_tab;
+    private javax.swing.JButton jButton1_verdetalles;
     private javax.swing.JButton jButton2_clientes_tab;
     private javax.swing.JButton jButton3_mascotas_tab;
     private javax.swing.JButton jButton4_vacunacion_tab;
